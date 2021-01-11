@@ -5,12 +5,10 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Main from './pages/Main/Main';
-import CategoryList from './pages/CategoryList/CategoryList';
+import Main from './Pages/Main/Main';
+import CategoryList from './Pages/CategoryList/CategoryList';
 import ProductList from './Pages/ProductList/ProductList';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
-
-
 
 class Routes extends React.Component {
   render() {
@@ -18,9 +16,9 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/" component={CategoryList} />
-          <Route exact path="/" component={ProductList} />
-          <Route exact path="/" component={ProductDetail} />
+          <Route exact path="/category_list" component={CategoryList} />
+          <Route exact path="/product_list" component={ProductList} />
+          <Route exact path="/product_detail" component={ProductDetail} />
         </Switch>
       </Router>
     )
