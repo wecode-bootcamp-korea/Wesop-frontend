@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CategoryMenu from './CategoryMenu/CategoryMenu';
+import NavList from './NavList/NavList';
 import Login from './Login/Login';
 
 
@@ -7,7 +7,7 @@ class Nav extends Component {
   render () {
     return (
       <div> Nav Bar
-        <CategoryMenu />
+        <NavList />
         <Login />
       </div>
     );
