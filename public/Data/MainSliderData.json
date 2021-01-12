@@ -1,0 +1,52 @@
+{
+    "mainSliderData": [
+      {
+        "id": 1,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/7CfXoeLvAfwurUPtXKSqg5/74c612f5b39d07f80a7b46d3011db447/Aesop_Home_Ptolemy_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
+        "productName": "프롤레미 아로마틱 캔들",
+        "productDescription": "가죽, 스모크, 우디 향이 자아내는 감각적인 블렌드"
+      },
+      {
+        "id": 2,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/oXA30jP4XWoGR39vbpFr1/5a4aaca6f6d6f6037a62979b5bfdeebb/Aesop_Home_Aganice_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
+        "productName": "아가니스 아로마틱 캔들",
+        "productDescription": "카디멈, 미모사, 토바코"
+      },
+      {
+        "id": 3,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/YHHomPJPuPAmj5iaQ7mxD/9e1d612f736cd18da3b01c737b25d8be/Aesop_Home_Callippus_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
+        "productName": "칼리푸스 아로마틱 캔들",
+        "productDescription": "짙은 그린과 흙내음이 나는 스파이스의 결합"
+      },
+      {
+        "id": 4,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/3OAZpRJxV6H46M96Wjhj8n/52c4c56e19fa5550bd387e1fdf5c7924/Aesop-Home-Room-Spray-Istros-100mL-large.png",
+        "productName": "이스트로스 아로마틱 룸 스프레이",
+        "productDescription": "매혹적인 향기가 공간을 채웁니다."
+      },
+      {
+        "id": 5,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/2qzJQ8Gbtq08k4WWBqcvw0/ebbec642eb4ae776480af3730e98c364/Aesop_Home_Brass_Oil_Burner_Hybris_Large_1000x607px.png",
+        "productName": "브라스 오일 버너",
+        "productDescription": "무게감이 있는 아름다운 오브제"
+      },
+      {
+        "id": 6,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/S7TtGsgpFT8EtigJ7O9qj/98c765c839badaee998bad65d28093a8/Aesop-Home-Catherine-Oil-Burner-Blend-25mL-large.png",
+        "productName": "캐서린 오일 버너 블렌드",
+        "productDescription": "시트러스와 클로브의 상쾌한 아로마"
+      },
+      {
+        "id": 7,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/5CgmELAfBL07dzWF2dXTlj/5d3419505c7eea0c19a49cca1a71260e/Aesop-Hand-Resurrection-Aromatique-Hand-Wash-Screw-Cap-500mL-Large-888x1100px.png",
+        "productName": "레저렉션 아로마틱 핸드 워시",
+        "productDescription": "열심히 일한 손을 위한 부드러운 클렌징"
+      },
+      {
+        "id": 8,
+        "url": "https://www.aesop.com/u1nb1km7t5q7/6iVThpXtZBgdW90m4OCAwD/0942e930874d16b7cbc225948afaee94/Aesop-Home-Post-Poo-Drops-100mL-large.png",
+        "productName": "포스트-푸 드롭스",
+        "productDescription": "보태니컬 성분의 욕실 탈취제"
+      }
+    ]
+  }

@@ -1,0 +1,90 @@
+@import '../../Styles/common.scss';
+
+.main {
+  width: 100%;
+  height: auto;
+  background-color: antiquewhite;
+
+  .mainSection-1 {
+    display:flex;
+    width: 100%;
+    height: 610px;
+    background-color: #12122c;
+    color:wheat;
+
+    .mainSection-1-leftSide {
+      display:flex;
+      width: 50%;
+      height: inherit;
+      background-color: lightcoral;
+    
+      .mainSection-1-leftSide-innerWrapper {
+        width:485px;
+        height: inherit;
+        padding: 200px 0 115px;
+        margin: 0 140px 0 280px; 
+      
+        h2 {
+          padding-bottom: 20px;
+          font-size: 14px;
+          }
+      
+        h1 {
+          padding-bottom: 30px;
+          font-size: 30px;
+        }
+
+        .mainSection-1-leftSide-innerWrapper-content {
+          p {
+            padding-bottom: 30px;
+          }
+
+          .mainSection-1-leftSide-innerWrapper-content-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 60px;
+            border:1px solid wheat;
+
+            &:hover { 
+              cursor: pointer; 
+              background-color: wheat; 
+            }
+
+            a {
+              text-decoration: none;
+              color: wheat;
+            }
+          }
+        }
+      }
+    }
+
+    .mainSection-1-rightSide {
+      width: 50%;
+      height: inherit;
+    }
+  }
+
+  .mainSection-3 {
+    width: 100%;
+    height: 860px;
+    padding: 50px 0;
+    background-color: #fffef2;
+  }
+
+  .mainSection-carouselSlider-2 {
+    width: 100%;
+    height: 650px;
+    padding: 50px 0;
+    background-color: #fffef2;
+  }
+
+  .mainSection-5 {
+    width: 100%;
+    height: 841px;
+    padding: 50px 0;
+    background-color: #fffef2;
+  }
+}
