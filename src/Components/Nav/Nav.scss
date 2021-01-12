@@ -1,0 +1,17 @@
+.Nav {
+  display: flex;
+  justify-content: space-between;
+
+  .NavList {
+    justify-content: flex-start;
+    
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+}

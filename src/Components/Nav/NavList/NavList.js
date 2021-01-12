@@ -1,77 +1,67 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import mockData from './PropertyData';
+import NavCategoryList from './NavCategoryList/NavCategoryList'
+import NavProductList from './NavProductList/NavProductList';
 import './NavList.scss'
+
 
 
 class NavList extends Component {
   constructor() {
     super();
     this.state = {
-      propertyList : [], // [ { id: 1, categoryName: '', typeName: '', productName: '',}, { id: 2, categoryName: '', typeName: '', productName: '',} ]
-      showTypeBox: false,
+      categoryTypeList : [{}, {}, {}], // [ { id: 1, typeName : '스킨', categoryList: [스킨케어, 클렌저, ...] }];
+      categoryList : [{}, {}, {}], // [ { id: 1, categoryType id : ?,  categoryName: '스킨케어', productList: [아이리무버, 퓨리파잉 클렌저, ...]}];
+      productList : [{}, {}, {}], // [ { id: 1, categoryid?: 1, productName: '아이리무버' }]
+      showCategoryBox: false,
       showProductBox: false,
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      propertyList: mockData,
-    })
+  // componentDidMount() {
+    // this.setState({
+    //   propertyList: mockData,
+    // })
     // fetch('address placeholder',
     //  { method: 'GET'})
     //  .then(res => res.json())
     //  .then(res => {
     //    this.setState({
-    //     propertyList: res.data,
+    //     categoryTypeList: res.data,
+    //     categoryList: res,data,
     //    });
     //  });
-  }
+  // }
 
-  showTypeBoxToggle = () => this.setState({ showTypeBox: !this.state.showTypeBox });
+  showCategoryBoxToggle = () => this.setState({ showCategoryBox: !this.state.showCategoryBox });
 
-  showProductBoxToggle = () => this.setState({ showProductBox: !this.state.showProductBox })
+  showProductBoxToggle = () => this.setState({ showProductBox: !this.state.showProductBox });
 
   render () {
-    const { propertyList, showTypeBox, showProductBox } = this.state;
+    const { categoryTypeList, categoryList, productList, showCategoryBox, showProductBox } = this.state;
     return (
-      <div className="NavList"> 
+      <div className={this.props.isHidden ? "hidden" : "NavList"}> 
 
-        <div> Category List 
+        <div> 카테고리 리스트
           <ul>
-            {propertyList.map((category) => {
+            {categoryTypeList.map((categoryType) => {
               return (
-                <li key={category.id}>
-                  <button onMouseEnter={this.showTypeBoxToggle}>{category.categoryName}</button>
+                <li key={categoryType.id}>
+                  <button onMouseEnter={this.showCategoryBoxToggle}>{categoryType.typeName}</button>
                 </li>
               )
             })}
           </ul>
         </div>
 
-        <div className={ showTypeBox ? "show" : "hidden" }>
-          <Link to="/category_list"> 모두 보기 </Link>
+        <div className={ showCategoryBox ? "show" : "hidden" }>
           <ul>
-            {propertyList.map((type) => {
-              return (
-                <li key={type.id}>
-                  <button onMouseEnter={this.showProductBoxToggle}>{type.typeName}</button>
-                </li>
-              )
-            })}
+            <NavCategoryList categoryList={categoryList} showProductBoxToggle={this.showProductBoxToggle}/>
           </ul>
         </div>
 
-        <div className={ showProductBox ? "show" : "hidden" }>
-          {/* <span> 모두 보기 </span> */}
+        <div className={ showProductBox ? "show" : "hidden" }> 제품
           <ul>
-            {propertyList.map((product) => {
-              return (
-                <li key={product.id}>
-                  <Link to="/product_detail"> {product.productName} </Link>
-                </li>
-              )
-            })}
+            <NavProductList productList={productList} />
           </ul>            
         </div>
 
