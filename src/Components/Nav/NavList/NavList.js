@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavCategoryList from './NavCategoryList/NavCategoryList'
 import NavProductList from './NavProductList/NavProductList';
-import { categoryTypeList, categoryList, productList } from './PropertyData'
+import { categories } from './PropertyData'
 import './NavList.scss'
 
 
@@ -10,19 +10,19 @@ class NavList extends Component {
   constructor() {
     super();
     this.state = {
-      categoryTypeList : [], // [ { id: 1, typeName : '스킨', categoryList: [스킨케어, 클렌저, ...] }];
-      categoryList : [], // [ { id: 1, categoryType id : ?,  categoryName: '스킨케어', productList: [아이리무버, 퓨리파잉 클렌저, ...]}];
-      productList : [], // [ { id: 1, categoryid?: 1, productName: '아이리무버' }]
-      showCategoryBox: false,
-      showProductBox: false,
+      categories: [],
+      subCategories: [],
+      productList: [],
+      currentSubId: 1,
+      currentProductId: 1,
+      isCategoryBoxVisible: false,
+      isProductBoxVisible: false,
     };
   }
 
   componentDidMount() {
     this.setState({
-      categoryTypeList: categoryTypeList,
-      categoryList: categoryList,
-      productList: productList,
+      categories : categories,
     })
     // fetch('address placeholder',
     //  { method: 'GET'})
@@ -35,37 +35,56 @@ class NavList extends Component {
     //  });
   }
 
-  showCategoryBoxToggle = () => {this.setState({ showCategoryBox: !this.state.showCategoryBox })};
+  toggleSubcategoryBox = (subId) => {
+    this.setState({
+      isCategoryBoxVisible: !this.state.isCategoryBoxVisible,
+      isProductBoxVisible: false,
+      subCategories: categories[(subId-1)].subCategories,
+      currentSubId: subId,
 
-  showProductBoxToggle = () => this.setState({ showProductBox: !this.state.showProductBox });
+    })
+  };
+
+  toggleProductBox = (productId) => {
+    this.setState({
+      isProductBoxVisible: !this.state.isProductBoxVisible,
+      productList: categories[(this.state.currentSubId-1)].subCategories[productId-1].productList,
+      currentProductId: productId,
+    })
+  };
 
   render () {
-    const { categoryTypeList, categoryList, productList, showCategoryBox, showProductBox } = this.state;
-    
+    const { categories, isCategoryBoxVisible, isProductBoxVisible, currentSubId, currentProductId } = this.state;
+
     return (
       <div className={this.props.isHidden ? "hidden" : "NavList"} > 
 
         <div>
-          <ul className="categoryType">
-            {categoryTypeList.map((categoryType) => {
+          <ul className="categories">
+            {categories && categories.map((category) => {
               return (
-                <li key={categoryType.id}>
-                  <button onMouseEnter={this.showCategoryBoxToggle}>{categoryType.typeName}</button>
+                <li key={category.id}>
+                  <button onMouseOver={() => this.toggleSubcategoryBox(category.id)}>{category.type}</button>
                 </li>
               )
             })}
           </ul>
         </div>
 
-        <div className={showCategoryBox ? "" : "hidden"}>
-          <ul className="showCategory">
-            <NavCategoryList categoryList={categoryList} showProductBoxToggle={this.showProductBoxToggle}/>
+        <div className={isCategoryBoxVisible ? "" : "hidden"}>
+          <ul className="subCategories">
+            <NavCategoryList 
+            // subCategories={ categories ? [] : categories[(currentSubId-1)].subCategories } // 이거 안돼요
+            subCategories={this.state.subCategories}
+            toggleProductBox={this.toggleProductBox}/>
           </ul>
         </div>
 
-        <div className={showProductBox ? "" : "hidden"}>
-          <ul className="showProduct">
-            <NavProductList productList={productList} />
+        <div className={isProductBoxVisible ? "" : "hidden"}>
+          <ul className="products">
+            <NavProductList
+            // productList={ categories ? [] : categories[(currentSubId-1)].subCategories[currentProductId-1].productList} /> // 같이 안돼요
+            productList={ this.state.productList } />
           </ul>            
         </div>
 

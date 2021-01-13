@@ -8,15 +8,15 @@ class NavCategoryList extends Component {
 
 
   render () {
-    const { categoryList, showProductBoxToggle } = this.props; // categoryList => category array with certain categoryType id?
+    const { subCategories, toggleProductBox } = this.props; // categoryList => category array with certain categoryType id?
   
     return (
       <>
         <Link to="/category_list"><button>모두 보기</button></Link>
-        {categoryList.map((category) => {
+        {subCategories && subCategories.map((subCategory) => {
           return (
-            <li key={category.id}>
-              <button onMouseEnter={showProductBoxToggle}>{category.categoryName}</button>
+            <li key={subCategory.id}>
+              <button onMouseOver={() => toggleProductBox(subCategory.id)}>{subCategory.name}</button>
             </li>
           )
         })}

@@ -15,10 +15,10 @@ class NavProductList extends Component {
     return (
       <>
         <Link to="/category_list"><button>모두 보기</button></Link> 
-        {productList.map((product) => {
+        {productList && productList.map((product) => {
           return (
             <li key={product.id}>
-              <button onClick={this.redirectToDetail}>{product.productName}</button>
+              <button onClick={this.redirectToDetail}>{product.name}</button>
             </li>
           )
         })}

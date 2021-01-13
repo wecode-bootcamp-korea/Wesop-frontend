@@ -28,6 +28,7 @@
         color: gray;
         font-size: 25px;
         font-family: sans-serif;
+        outline: none;
 
         &:hover {
           cursor: pointer;
@@ -37,15 +38,11 @@
       }
     }
 
-    .categoryType {
+    .categories {
       margin-top: 25vh;
     }
 
-    .showCategory {
-      margin-top: 30vh;
-    }
-
-    .showProduct {
+    .subCategories, .products {
       margin-top: 30vh;
     }
 
