@@ -1,35 +1,58 @@
 import React, { Component } from 'react';
-import NavList from './NavList/NavList';
-import Login from './Login/Login';
+// import Login from ‘./Login/Login’;
+import NavList from './NavList/NavList'; // 성현님 컴포넌트
 import './Nav.scss';
 
 class Nav extends Component {
-  constructor() {
+  constructor () {
     super();
-    this.state = {
-      isHidden : true,
+    this.state= {
+      isLoginShown: false,
+      isNavListShown: false,
     }
   }
-
-  handleNavList = e => {
-    e.preventDefault();
+  handleLoginModal = () => {
     this.setState({
-      isHidden : !this.state.isHidden,
+      isLoginShown: !this.state.isLoginShown,
     })
-    console.log(this.state.isHidden)
   }
-
+  handleNavListModal = () => {
+    this.setState({
+      isNavListShown: !this.state.isNavListShown,
+    })
+  }
   render () {
-    const { isHidden } = this.state;
+    const { isLoginShown, isNavListShown } = this.state;
     return (
-      <div className="Nav">
-        <button onClick={this.handleNavList}>제품 정보</button>
-        <NavList isHidden={this.state.isHidden}/>
-        <Login />
-      </div>
+      <nav className='Nav'>
+        <div className="NavLeftWrap">
+          <ul className="NavLeftBtns">
+            <span onClick={this.handleNavListModal} >제품보기</span>
+            <span>읽기</span>
+            <span>스토어</span>
+            <span>검색</span>
+          </ul>
+        </div>
+
+        <div>
+
+        </div>
+
+        <div className='NavRightWrap'>
+          <ul className='NavRightBtns'>
+            <span onClick={this.handleLoginModal}>로그인</span>
+            <span>카트</span>
+          </ul>
+         </div>
+         
+        {/* <div className={isLoginShown ?'show' : 'hide'}>
+            <Login />
+        </div> */}
+        <div className={isNavListShown ? 'showNavList' : 'hideNavList'}>
+            <NavList isNavListShown={isNavListShown} /> 
+        </div>
+      </nav>
     );
   }
-
 }
-
 export default Nav;

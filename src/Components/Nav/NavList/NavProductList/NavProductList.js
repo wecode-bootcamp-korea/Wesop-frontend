@@ -14,7 +14,7 @@ class NavProductList extends Component {
 
     return (
       <>
-        <Link to="/category_list"> 모두 보기 </Link> 
+        <Link to="/category_list"><button>모두 보기</button></Link> 
         {productList.map((product) => {
           return (
             <li key={product.id}>

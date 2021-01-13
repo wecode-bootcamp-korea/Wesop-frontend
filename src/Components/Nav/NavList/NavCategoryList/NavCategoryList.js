@@ -12,7 +12,7 @@ class NavCategoryList extends Component {
   
     return (
       <>
-        <Link to="/category_list"> 모두 보기 </Link>
+        <Link to="/category_list"><button>모두 보기</button></Link>
         {categoryList.map((category) => {
           return (
             <li key={category.id}>

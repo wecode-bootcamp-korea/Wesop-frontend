@@ -1,15 +1,57 @@
 .NavList {
   display: flex;
-  justify-content: space-evenly;
-  align-items:flex-start;
+  justify-content: start;
+  align-items: center;
+  width: 100vw;
 
   div {
+    width: 33vw;
+    height: 100vh;
+    border-right: 1px solid rgb(224, 224, 224);
+    background-color: #faf8f0;
+
+    &:last-child {
+      width: calc(34vw - 2px);
+      border: none;
+    }
+
+    ul {
+      margin-left: 40px;
+
+      button {
+        margin: 5px 0;
+        padding: 0;
+        padding-bottom: 3px;
+        border: none;
+        border-bottom: 1px solid transparent;
+        background: none;
+        color: gray;
+        font-size: 25px;
+        font-family: sans-serif;
+
+        &:hover {
+          cursor: pointer;
+          border-bottom: 1px solid gray;
+          padding-bottom: 3px;
+        }
+      }
+    }
+
+    .categoryType {
+      margin-top: 25vh;
+    }
+
+    .showCategory {
+      margin-top: 30vh;
+    }
+
+    .showProduct {
+      margin-top: 30vh;
+    }
 
   }
 
-  .show {
 
-  }
 
   .hidden {
     display: none;
