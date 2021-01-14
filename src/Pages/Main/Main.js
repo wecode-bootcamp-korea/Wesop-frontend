@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
 import MainSlider from './MainSlider';
 import './Main.scss'
 import "slick-carousel/slick/slick.css";
@@ -74,7 +75,8 @@ class Main extends Component {
             <div className="mainSection-6-quote-title">‘It is high time to rekindle the stars.’</div>
             <div className="mainSection-6-quote-writer">Guillaume Apollinaire</div>
           </div>
-        </section>  
+        </section>
+        <Footer />
       </div>
 
     );
