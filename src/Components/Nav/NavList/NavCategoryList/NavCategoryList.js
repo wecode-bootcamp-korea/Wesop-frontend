@@ -13,10 +13,10 @@ class NavCategoryList extends Component {
     return (
       <>
         <Link to="/category_list"><button>모두 보기</button></Link>
-        {subCategories && subCategories.map((subCategory) => {
+        {subCategories && subCategories.map((subCategory, idx) => {
           return (
             <li key={subCategory.id}>
-              <button onMouseOver={() => toggleProductBox(subCategory.id)}>{subCategory.name}</button>
+              <button onMouseOver={() => toggleProductBox(idx)}>{subCategory.name}</button>
             </li>
           )
         })}
