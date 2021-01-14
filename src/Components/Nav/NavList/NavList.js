@@ -35,27 +35,38 @@ class NavList extends Component {
 
   toggleSubcategoryBox = (idx) => {
     this.setState({
-      isCategoryBoxVisible: !this.state.isCategoryBoxVisible,
+      isCategoryBoxVisible: true,
       isProductBoxVisible: false,
       categoryIdx: idx,
-
     })
   };
 
   toggleProductBox = (idx) => {
     this.setState({
-      isProductBoxVisible: !this.state.isProductBoxVisible,
+      isProductBoxVisible: true,
       subCategoryIdx: idx,
     })
   };
 
+  // removeSubCategoryBox = () => {
+  //   this.setState({
+  //     isCategoryBoxVisible: false,
+  //   })
+  // }
+
+  removeProductBox = () => {
+    this.setState({
+      isProductBoxVisible: false,
+    })
+  }
+
   render () {
     const { categories, isCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx } = this.state;
-    const { toggleSubcategoryBox, toggleProductBox } = this;
+    const { toggleSubcategoryBox, toggleProductBox, removeSubCategoryBox,removeProductBox } = this;
     return (
-      <div className={this.props.isHidden ? "hidden" : "NavList"} > 
+      <div className={this.props.isHidden ? "hidden" : "NavList"}> 
 
-        <div>
+        <div onMouseEnter={removeProductBox}>
           <ul className="categories">
             {categories && categories.map((category, idx) => {
               return (

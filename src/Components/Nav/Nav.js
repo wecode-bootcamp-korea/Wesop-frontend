@@ -21,6 +21,7 @@ class Nav extends Component {
       isNavListShown: !this.state.isNavListShown,
     })
   }
+
   render () {
     const { isLoginShown, isNavListShown } = this.state;
     return (
