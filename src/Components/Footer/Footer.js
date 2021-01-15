@@ -1,41 +1,97 @@
 import React, { Component } from 'react';
 import './Footer.scss'
 
+const FOOTER_INQUIRY = [
+  {
+    id: 1,
+    content:"문의하기"
+  },
+  {
+    id: 2,
+    content:"FAQS"
+  },
+  {
+    id:3,
+    content:"배송 및 반품"
+  },
+  {
+    id:4,
+    content:"배송확인"
+  },
+  {
+    id:5,
+    content:"이용 약관"
+  },
+  {
+    id:6,
+    content:"개인정보 정책"
+  }
+]
+
+const FOOTER_BRAND = [
+  {
+    id: 1,
+    content:"브랜드 스토리"
+  },
+  {
+    id: 2,
+    content:"채용"
+  },
+  {
+    id:3,
+    content:"마케팅 문의"
+  },
+  {
+    id:4,
+    content:"기업용 선물"
+  },
+  {
+    id:5,
+    content:"페이셜 어포인트먼트"
+  },
+  {
+    id:6,
+    content:"개인 정보 보호 정책"
+  }
+]
+
+const FOOTER_SOCIAL = [
+  {
+    id: 1,
+    content:"Instagram",
+    url: "https://www.instagram.com/aesopskincare/"
+  },
+  {
+    id: 2,
+    content:"Twitter",
+    url: "https://twitter.com/aesopskincare"
+  },
+  {
+    id:3,
+    content:"LinkedIn",
+    url: "https://au.linkedin.com/company/aesop"
+  },
+  {
+    id:4,
+    content:"Kakao Plus Friend",
+    url: "https://pf.kakao.com/_BxdYjT"
+  },
+  {
+    id:5,
+    content:"Naver Post",
+    url:"https://post.naver.com/aesopskincare"
+  }
+]
+
 class Footer extends Component {
   render () {
-    const footerInquiry = [
-      "문의하기",
-      "FAQS",
-      "배송 및 반품",
-      "배송 확인",
-      "이용 약관",
-      "개인정보 정책"
-    ]
-
-    const footerBrand = [
-      "브랜드 스토리",
-      "채용",
-      "마케팅 문의",
-      "기업용 선물",
-      "페이셜 어포인트먼트",
-      "개인 정보 보호 정책"
-    ]
-
-    const footerSocial = [
-      "Instagram",
-      "Twitter",
-      "LinkedIn",
-      "Kakao Plus Friend",
-      "Naver Post"
-    ]
-
     return (
       <div className="Footer">
         <div className="Footer-main">
           <div className="Footer-main-subscription">
             <span className="Footer-main-subscription-title">구독하기</span>
             <div class="form">
-              <input type="text" name="name" autoComplete="off" required/>
+              <input type="e-mail" name="name" autoComplete="off" required/>
               <label for="name" className="label-name">
                 <span className="Footer-main-subscription-input content-name">이메일 주소</span>
               </label>
@@ -47,9 +103,9 @@ class Footer extends Component {
               <ul className="Footer-main-link-introduction-inquiry">
                 <span>문의하기</span>
                 {
-                  footerInquiry.map((item) => {
+                  FOOTER_INQUIRY.map((item) => {
                   return(
-                    <li>{item}</li>
+                    <li key={item.id}>{item.content}</li>
                     )
                   })
                 }
@@ -57,9 +113,9 @@ class Footer extends Component {
               <ul className="Footer-main-link-introduction-brand">
                 <span>브랜드 소개</span>
                 {
-                  footerBrand.map((item) => {
+                  FOOTER_BRAND.map((item) => {
                   return(
-                    <li>{item}</li>
+                    <li key={item.id}>{item.content}</li>
                     )
                   })
                 }
@@ -67,9 +123,9 @@ class Footer extends Component {
               <ul className="Footer-main-link-introduction-social">
                 <span>소셜</span>
                 {
-                  footerSocial.map((item) => {
+                  FOOTER_SOCIAL.map((item) => {
                   return(
-                    <li>{item}<i class="fas fa-location-arrow fa-xs"></i></li>
+                    <li key={item.id}><a href={item.url} target="_blank">{item.content}</a><i class="fas fa-location-arrow fa-xs"></i></li>
                     )
                   })
                 }
