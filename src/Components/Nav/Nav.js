@@ -50,7 +50,7 @@ class Nav extends Component {
           </ul>
          </div>
 
-         <div className={isLoginShown ?"show" : "hide"}>
+         <div className={isLoginShown ? "show" : "hide"}>
             <Login />
          </div>
          
