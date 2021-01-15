@@ -7,14 +7,14 @@ import './NavList.scss'
 
 
 class NavList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       categories: [],
       categoryIdx: 0,
       subCategoryIdx: 0,
-      isCategoryBoxVisible: false,
       isProductBoxVisible: false,
+      isCategoryBoxVisible: false,
     };
   }
 
@@ -48,11 +48,12 @@ class NavList extends Component {
     })
   };
 
-  // removeSubCategoryBox = () => {
-  //   this.setState({
-  //     isCategoryBoxVisible: false,
-  //   })
-  // }
+  removeAllBox = () => {
+    this.setState({
+      isCategoryBoxVisible: false,
+      isProductBoxVisible: false,
+    })
+  }
 
   removeProductBox = () => {
     this.setState({
@@ -62,9 +63,10 @@ class NavList extends Component {
 
   render () {
     const { categories, isCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx } = this.state;
-    const { toggleSubcategoryBox, toggleProductBox, removeSubCategoryBox,removeProductBox } = this;
+    const { toggleSubcategoryBox, toggleProductBox, removeAllBox,removeProductBox } = this;
+    
     return (
-      <div className={this.props.isHidden ? "hidden" : "NavList"}> 
+      <div className="NavList" onMouseLeave={removeAllBox}> 
 
         <div onMouseEnter={removeProductBox}>
           <ul className="categories">
