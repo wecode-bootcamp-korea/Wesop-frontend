@@ -1,32 +1,35 @@
 @import '../../Styles/common.scss';
 
-*{
-  box-sizing: border-box;
-}
-
 .main {
   width: 100%;
   height: auto;
-  background-color: white;
+  background-color: #fffef2;
 
-  .mainSection-1 {
+  .mainSection-header {
     display:flex;
     width: 100%;
     height: 610px;
     background-color: #12122c;
-    color:wheat;
+    color:white;
 
-    .mainSection-1-leftSide {
+    .mainSection-header-leftSide {
       display:flex;
       width: 50%;
       height: inherit;
-      background-color: lightcoral;
+      background-color: black;
 
-      .mainSection-1-leftSide-innerWrapper {
-        width:485px;
+      .mainSection-header-leftSide-logo {
+        padding-top: 200px;
+        margin-left: 60px;
+        cursor: pointer;
+        font-size: 30px;
+      }
+
+      .mainSection-header-leftSide-innerWrapper {
+        width:500px;
         height: inherit;
         padding: 200px 0 115px;
-        margin: 0 140px 0 280px; 
+        margin: 0 120px 0 170px; 
       
         h2 {
           padding-bottom: 20px;
@@ -38,30 +41,33 @@
           font-size: 30px;
           }
       
-        .mainSection-1-leftSide-innerWrapper-content {
+        .mainSection-header-leftSide-innerWrapper-content {
           p {
             padding-bottom: 30px;
+            line-height:25px;
           }
       
-          .mainSection-1-leftSide-innerWrapper-content-button {
+          .mainSection-header-leftSide-innerWrapper-content-button {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             width: 300px;
             height: 60px;
-            border:1px solid wheat;
+            padding:0 20px;
+            border:1px solid #fffef2;
+            font-size:14px;
       
             &:hover { 
               cursor: pointer; 
-              background-color: wheat; 
-              color:tomato
+              background-color: #fffef2; 
+              color:black;
             }
           }
         }   
       }
     }
 
-    .mainSection-1-rightSide {
+    .mainSection-header-rightSide {
       width: 50%;
       height: inherit;
       display: flex;
@@ -69,21 +75,24 @@
     }
   }
 
-  .mainSection-3 {
+  .mainSection-newproduct,
+  .mainSection-location {
     display: flex;
     width: 100%;
     height: 860px;
     padding: 50px 0;
-    background-color:lightseagreen;
+    background-color:fffef2;
 
-    .mainSection-3-leftside {
+    .mainSection-newproduct-leftside,
+    .mainSection-location-leftside {
       width: 34%;
       height: 760px;
       padding-left: 80px;
-      background-color:lightcoral;
+      background-color:fffef2;
       
-      .mainSection-3-leftSide-innerWrapper {
-        width:485px;
+      .mainSection-newproduct-leftSide-innerWrapper,
+      .mainSection-location-leftSide-innerWrapper {
+        width:570px;
         height: inherit;
       
         h2 {
@@ -96,61 +105,65 @@
           font-size: 30px;
           }
       
-        .mainSection-3-leftSide-innerWrapper-content {
+        .mainSection-newproduct-leftSide-innerWrapper-content,
+        .mainSection-location-leftSide-innerWrapper-content {
           p {
             padding-bottom: 30px;
+            line-height:25px;
           }
       
-          .mainSection-3-leftSide-innerWrapper-content-button {
+          .mainSection-newproduct-leftSide-innerWrapper-content-button,
+          .mainSection-location-leftSide-innerWrapper-content-button {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 300px;
             height: 60px;
-            border:1px solid wheat;
+            border:1px solid #d6d5cc;
                
             &:hover { 
               cursor: pointer; 
-              background-color: wheat; 
-              color:tomato
+              background-color: #333333; 
+              color:#fffef2;
             }
           }
         }   
       }
     }
 
-    .mainSection-3-rightSide {
+    .mainSection-newproduct-rightSide,
+    .mainSection-location-rightSide {
       width: 66%;
       height: 760px;
       padding-left: 158px;
-      background-color: lightblue;
+      background-color:fffef2;
       display: flex;
       justify-content: flex-end;
     }
   }
   
-  .mainSection-6 {
+  .mainSection-quote {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 487px;
     padding: 150px 40px;
-    background-color: tan;
+    background-color: fffef2;
 
-    .mainSection-6-quote {
+    .mainSection-quote-content {
       display: flex;
       flex-direction:column;
       justify-content: center;
       align-items: center;
       height: 87px;
 
-      .mainSection-6-quote-title {
+      .mainSection-quote-content-title {
         margin-bottom: 20px;
         font-size:30px;
       }
 
-      .mainSection-6-quote-writer {
+      .mainSection-quote-content-writer {
         font-size:14px;
       }
     }
