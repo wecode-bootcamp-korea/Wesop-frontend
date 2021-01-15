@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
-import MainSlider from './MainSlider';
+import Slider from './Slider';
 import './Main.scss'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//import "slick-carousel/slick/slick.css";
+//import "slick-carousel/slick/slick-theme.css";
 
 class Main extends Component {
   render() { 
@@ -30,7 +30,7 @@ class Main extends Component {
             <img alt="new_product_promotion_img" src="https://www.aesop.com/u1nb1km7t5q7/2lcsVIwzcf7YupCndczysa/4e8755959b13dac77f0749dab5a89ba4/Aesop_Poured_Candles_2020_Hybris_Homepage_Secondary_Split_02_960x540px.gif" />
           </div>
         </section>      
-        <MainSlider />
+        <Slider />
         <div className="mainSection-3">
           <div className="mainSection-3-leftside">
             <div className="mainSection-3-leftSide-innerWrapper">
@@ -50,7 +50,7 @@ class Main extends Component {
             <img alt="seed_skincare_img" width="1110px" src="https://www.aesop.com/u1nb1km7t5q7/5Uchgf3EITLPDvmZgf3Cj2/2c648d927c44ac2c844e6e5cce10cba9/Aesop-Parsley-Seed-Performance-Campaign-2020-Hybris-Homepage-Secondary-3-Mid-Desktop-1690x1150px.jpg" />
           </div>
         </div>
-        <MainSlider />
+        <Slider />
         <div className="mainSection-3">
           <div className="mainSection-3-leftside">
             <div className="mainSection-3-leftSide-innerWrapper">
