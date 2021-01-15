@@ -91,7 +91,7 @@ class Footer extends Component {
           <div className="Footer-main-subscription">
             <span className="Footer-main-subscription-title">구독하기</span>
             <div class="form">
-              <input type="e-mail" name="name" autoComplete="off" required/>
+              <input type="text" name="name" autoComplete="off" required/>
               <label for="name" className="label-name">
                 <span className="Footer-main-subscription-input content-name">이메일 주소</span>
               </label>
