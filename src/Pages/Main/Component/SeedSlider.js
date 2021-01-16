@@ -6,7 +6,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
-class CandleSlider extends Component {
+class SeedSlider extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,7 +19,7 @@ class CandleSlider extends Component {
       .then(res => res.json())
       .then((data) => {
         this.setState({
-          mainSliderProducts: data.MainCandleProducts
+          mainSliderProducts: data.MainSeedProducts
           })
         } 
       )
@@ -58,4 +58,4 @@ class CandleSlider extends Component {
   }
 }
 
-export default CandleSlider;
+export default SeedSlider;

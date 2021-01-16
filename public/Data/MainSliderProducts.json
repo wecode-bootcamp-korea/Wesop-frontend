@@ -1,51 +1,122 @@
- [
-  {
-    "id": 1,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/7CfXoeLvAfwurUPtXKSqg5/74c612f5b39d07f80a7b46d3011db447/Aesop_Home_Ptolemy_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  },
-  {
-    "id": 2,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/oXA30jP4XWoGR39vbpFr1/5a4aaca6f6d6f6037a62979b5bfdeebb/Aesop_Home_Aganice_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  },
-  {
-    "id": 3,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/YHHomPJPuPAmj5iaQ7mxD/9e1d612f736cd18da3b01c737b25d8be/Aesop_Home_Callippus_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  },
-  {
-    "id": 4,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/3OAZpRJxV6H46M96Wjhj8n/52c4c56e19fa5550bd387e1fdf5c7924/Aesop-Home-Room-Spray-Istros-100mL-large.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  },
-  {
-    "id": 5,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/2qzJQ8Gbtq08k4WWBqcvw0/ebbec642eb4ae776480af3730e98c364/Aesop_Home_Brass_Oil_Burner_Hybris_Large_1000x607px.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  },
-  {
-    "id": 6,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/S7TtGsgpFT8EtigJ7O9qj/98c765c839badaee998bad65d28093a8/Aesop-Home-Catherine-Oil-Burner-Blend-25mL-large.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  },
-  {
-    "id": 7,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/5CgmELAfBL07dzWF2dXTlj/5d3419505c7eea0c19a49cca1a71260e/Aesop-Hand-Resurrection-Aromatique-Hand-Wash-Screw-Cap-500mL-Large-888x1100px.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  },
-  {
-    "id": 8,
-    "url": "https://www.aesop.com/u1nb1km7t5q7/6iVThpXtZBgdW90m4OCAwD/0942e930874d16b7cbc225948afaee94/Aesop-Home-Post-Poo-Drops-100mL-large.png",
-    "name": "상품명",
-    "description": "상품 설명"
-  }
-]
+{
+  "MainCandleProducts":[
+    {
+      "id": 1,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/7CfXoeLvAfwurUPtXKSqg5/74c612f5b39d07f80a7b46d3011db447/Aesop_Home_Ptolemy_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 2,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/oXA30jP4XWoGR39vbpFr1/5a4aaca6f6d6f6037a62979b5bfdeebb/Aesop_Home_Aganice_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 3,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/YHHomPJPuPAmj5iaQ7mxD/9e1d612f736cd18da3b01c737b25d8be/Aesop_Home_Callippus_Aromatique_Candle_Volume_Hybris_Large_835x962px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 4,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/3OAZpRJxV6H46M96Wjhj8n/52c4c56e19fa5550bd387e1fdf5c7924/Aesop-Home-Room-Spray-Istros-100mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 5,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/2qzJQ8Gbtq08k4WWBqcvw0/ebbec642eb4ae776480af3730e98c364/Aesop_Home_Brass_Oil_Burner_Hybris_Large_1000x607px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 6,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/S7TtGsgpFT8EtigJ7O9qj/98c765c839badaee998bad65d28093a8/Aesop-Home-Catherine-Oil-Burner-Blend-25mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 7,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/5CgmELAfBL07dzWF2dXTlj/5d3419505c7eea0c19a49cca1a71260e/Aesop-Hand-Resurrection-Aromatique-Hand-Wash-Screw-Cap-500mL-Large-888x1100px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 8,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/6iVThpXtZBgdW90m4OCAwD/0942e930874d16b7cbc225948afaee94/Aesop-Home-Post-Poo-Drops-100mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    }
+  ],
+  "MainSeedProducts":[
+    {
+      "id": 1,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/2GJYUHiIHpEWKKoOt3VwZw/6a84b2a1d1b03cd7d66c310f5a579cd5/Aesop-Skin-Parsley-Seed-Anti-Oxidant-Eye-Serum-15mL-Large-684x668px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 2,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/73AShsVMPEepaw5XLA5LAK/aa403588a6695852e6b52555e42e7c93/Aesop-Skin-Parsley-Seed-Anti-Oxidant-Eye-Cream-10mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 3,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/6ilfrFmz8XscNSkztvTHIc/199b324ed61ec4a8eed99aed9c2cbb10/Aesop-Skin-Parsley-Seed-Cleansing-Masque-60mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 4,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/vj7h54KpQQ7ha4ZP68aYe/6bfa6f01d7b0e4558b82e23bd956891f/Aesop-Skin-Parsley-Seed-Facial-Cleansing-Oil-200mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 5,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/3xC43pqzrS2kHoucziLkhD/f7fb68b458a770932d1b667977145a91/Aesop-Skin-Parsley-Seed-Anti-Oxidant-Facial-Treatment-15mL-Large-684x668px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 6,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/LL8pUKUiuq1n8mKKpLdbb/b41e1d77b6dfeca7632d6677ee232fcb/Aesop-SkinParsley-Seed-Facial-Cleanser-100mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 7,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/6MVPEkEMiRdQqfdFObezbL/5afc1ad73e9e0378ffa77add0af2edb8/Aesop-Skin-Parsley-Seed-Anti-Oxidant-Hydrator-60mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 8,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/7jLz9UYeP6Pj3DsuBhoCsp/16bd68d17345cd9b4f718c5b6e5bb742/Aesop-Skin-Parsley-Seed-Anti-Oxidant-Facial-Hydrating-Cream-60mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 9,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/3ZaQTCWi3vujvyFFit4Jq/96c9a2a1bdc8b1f5ee32531abce2b3aa/Aesop-Kit-PSAO-PDP-Asset-Desktop-1584x962px.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 10,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/5iHUh17LIR28yAhxvWZMih/71e68a9b24664fba09d43f3e4f81a0fd/Aesop-Skin-Parsley-Seed-Anti-Oxidant-Serum-100mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    },
+    {
+      "id": 11,
+      "url": "https://www.aesop.com/u1nb1km7t5q7/5tohXrYPG52gI48cP9TbJR/c8fd45a7665745c81dffaf5c6b5895b2/Large-PNG-Aesop-Skin-Parsley-Seed-Anti-Oxidant-Facial-Toner-100mL-large.png",
+      "name": "상품명",
+      "description": "상품 설명"
+    }
+  ]
+} 
+
   
