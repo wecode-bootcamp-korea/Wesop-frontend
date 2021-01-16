@@ -17,6 +17,7 @@ class NavList extends Component {
       showProductLength: false,
       isSubCategoryBoxVisible: false,
       isProductBoxVisible: false,
+      showMainImage: false,
     };
   }
 
@@ -48,6 +49,7 @@ class NavList extends Component {
       isProductBoxVisible: true,
       subCategoryIdx: idx,
       showProductLength: idx,
+      showMainImage: false,
     })
   };
 
@@ -57,6 +59,7 @@ class NavList extends Component {
       isProductBoxVisible: false,
       showSubLength: false,
       showProductLength: false,
+      showMainImage: false,
     })
   }
 
@@ -64,12 +67,23 @@ class NavList extends Component {
     this.setState({
       isProductBoxVisible: false,
       showProductLength: false,
+      showMainImage: false,
     })
   }
 
+  toggleShowAllBox = () => {
+    this.setState({
+      showMainImage: true,
+      isProductBoxVisible: false,
+      showProductLength: false,
+    })
+  }
+
+
+
   render () {
-    const { categories, isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength } = this.state;
-    const { toggleSubcategoryBox, toggleProductBox, removeAllBox,removeProductBox } = this;
+    const { categories, isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength, showMainImage } = this.state;
+    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox } = this;
     
     return (
       <div className="NavList" onMouseLeave={removeAllBox}> 
@@ -94,16 +108,21 @@ class NavList extends Component {
               toggleProductBox={toggleProductBox}
               toggleSubcategoryBox={toggleSubcategoryBox} 
               showProductLength={showProductLength}
+              toggleShowAllBox={toggleShowAllBox}
               />
             </ul>
           </div>
 
-          <div className={isProductBoxVisible ? "" : "hidden"}>
+          <div className={isProductBoxVisible ? "lastChild" : "hidden"}>
             <ul className="products">
               <NavProductList
               productList={ categories.length && categories[categoryIdx].subCategories[subCategoryIdx].productList}
               toggleProductBox={toggleProductBox} />
             </ul>            
+          </div>
+
+          <div className={showMainImage ? "lastChild" : "hidden"}>
+            <img alt="testing" src="https://www.aesop.com/medias/Aesop-Shop-Navigation-SkinCare-960x1600px.jpg?context=bWFzdGVyfGltYWdlc3wyOTMwMzF8aW1hZ2UvanBlZ3xpbWFnZXMvaGEyL2g2ZS84ODA5OTU3NTg5MDIyLmpwZ3xkY2U4Y2Y0NDRlNTc3YzYwMzJjYjBlMjVjNDM3Njg4MTI2ZDZhYWE4MjM2YTJhZTViNmZhMGVjNTNhNzZhOTgw"></img>
           </div>
 
       </div>

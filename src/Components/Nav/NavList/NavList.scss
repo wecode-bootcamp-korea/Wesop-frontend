@@ -11,9 +11,9 @@
     border-right: 1px solid rgb(224, 224, 224);
     background-color: #faf8f0;
 
-    &:last-child {
-      width: calc(34vw - 2px);
-      border: none;
+    img {
+      width: 100%;
+      height: 100%;
     }
 
     ul {
@@ -36,6 +36,12 @@
           border-bottom: 1px solid gray;
           padding-bottom: 3px;
         }
+
+        &:hover {
+          cursor: pointer;
+          border-bottom: 1px solid gray;
+          padding-bottom: 3px;
+        }
       }
       .length {
         vertical-align: 10px;
@@ -51,7 +57,18 @@
 
     .subCategories, .products {
       margin-top: 30vh;
+      
+      a {
+        .showAll {
+          margin-bottom: 20px;
+        }
+      }
     }
+  }
+
+  .lastChild {
+    width: calc(34vw - 2px);
+    border: none;
   }
 
 
