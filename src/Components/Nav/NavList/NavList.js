@@ -13,8 +13,10 @@ class NavList extends Component {
       categories: [],
       categoryIdx: 0,
       subCategoryIdx: 0,
+      showSubLength: false,
+      showProductLength: false,
+      isSubCategoryBoxVisible: false,
       isProductBoxVisible: false,
-      isCategoryBoxVisible: false,
     };
   }
 
@@ -27,17 +29,17 @@ class NavList extends Component {
     //  .then(res => res.json())
     //  .then(res => {
     //    this.setState({
-    //     categoryTypeList: res.data,
-    //     categoryList: res,data,
+    //     categories: res,data,
     //    });
     //  });
   }
 
   toggleSubcategoryBox = (idx) => {
     this.setState({
-      isCategoryBoxVisible: true,
+      isSubCategoryBoxVisible: true,
       isProductBoxVisible: false,
       categoryIdx: idx,
+      showSubLength: idx,
     })
   };
 
@@ -45,24 +47,28 @@ class NavList extends Component {
     this.setState({
       isProductBoxVisible: true,
       subCategoryIdx: idx,
+      showProductLength: idx,
     })
   };
 
   removeAllBox = () => {
     this.setState({
-      isCategoryBoxVisible: false,
+      isSubCategoryBoxVisible: false,
       isProductBoxVisible: false,
+      showSubLength: false,
+      showProductLength: false,
     })
   }
 
   removeProductBox = () => {
     this.setState({
       isProductBoxVisible: false,
+      showProductLength: false,
     })
   }
 
   render () {
-    const { categories, isCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx } = this.state;
+    const { categories, isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength } = this.state;
     const { toggleSubcategoryBox, toggleProductBox, removeAllBox,removeProductBox } = this;
     
     return (
@@ -73,19 +79,22 @@ class NavList extends Component {
             {categories && categories.map((category, idx) => {
               return (
                 <li key={category.id}>
-                  <button onMouseOver={() => toggleSubcategoryBox(idx)}>{category.type}</button>
+                  <button className={(showSubLength === idx) ? "selected" : ""} onMouseOver={() => toggleSubcategoryBox(idx)}>{category.type}</button>
+                  <span className={(showSubLength === idx) ? "length" : "hidden"}>{category.subCategories.length}</span>
                 </li>
               )
             })}
           </ul>
         </div>
 
-          <div className={isCategoryBoxVisible ? "" : "hidden"}>
+          <div className={isSubCategoryBoxVisible ? "" : "hidden"}>
             <ul className="subCategories">
               <NavCategoryList 
               subCategories={ categories.length && categories[categoryIdx].subCategories } 
               toggleProductBox={toggleProductBox}
-              toggleSubcategoryBox={toggleSubcategoryBox}/>
+              toggleSubcategoryBox={toggleSubcategoryBox} 
+              showProductLength={showProductLength}
+              />
             </ul>
           </div>
 
@@ -97,11 +106,10 @@ class NavList extends Component {
             </ul>            
           </div>
 
-    </div>
+      </div>
 
     );
   }
-
 }
 
 export default NavList;
