@@ -36,8 +36,7 @@ class Slider extends Component {
           slidesPerView={4}
           navigation
           scrollbar={{ 
-            draggable: true,
-            dragSize: 'auto' }}>
+            draggable: true}}>
             {mainSliderProducts && 
              mainSliderProducts.map( item => {
                 return (
