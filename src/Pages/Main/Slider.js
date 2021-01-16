@@ -35,10 +35,9 @@ class Slider extends Component {
         <Swiper
           slidesPerView={4}
           navigation
-          scrollbar={{ draggable: true }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}>
-          
+          scrollbar={{ 
+            draggable: true,
+            dragSize: 'auto' }}>
             {mainSliderProducts && 
              mainSliderProducts.map( item => {
                 return (

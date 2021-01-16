@@ -4,9 +4,47 @@
   margin: 50px 0;
   background-color: fffef2;
 
+  .swiper-button-next {
+    right:0px !important;
+  }
+  
+  .swiper-button-prev {
+    left:0px !important;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width:80px !important;
+    height: 80px !important;
+    background-color: #333333 !important;
+    color:white !important;
+      
+    &::after {
+      font-size: 15px !important;
+    }
+  }
+   
+  .swiper-button-disabled {
+    opacity: 0 !important;
+    cursor: auto !important;
+    pointer-events: none !important;
+  }
+  
+  .swiper-scrollbar {
+    position: absolute;
+    left: 80px !important;
+    width: 1740px !important;
+    height:2px !important;
+  
+    .swiper-scrollbar-drag {
+      width: 340px !important;
+      height:2px !important;
+    }
+  }
+
   .mainSection-Slider-items-line {
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 80px;
+    padding-right: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
