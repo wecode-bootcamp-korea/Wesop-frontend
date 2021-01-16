@@ -10,10 +10,11 @@ class ProductInfo extends Component {
     return (
       <div className="ProductInfo">
         <div className="nameDescriptionWrap">
-          <div className="categoryBtn">
-            <button> {product[0].category} </button>
-            &
-            <button> {product[0].subCategory} </button>
+          <div className="categoryBtns">
+            <ul>
+              <li><button> {product[0].category} </button></li>
+              <li><button> {product[0].subCategory} </button></li>
+            </ul>
           </div>
           <p className="productName">{product[0].name}</p>
           <p className="productDescription"> {product[0].description} </p>
