@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import './CandleSlider.scss';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
+import Products from './Products';
 
 class SeedSlider extends Component {
-  constructor() {
-    super();
-    this.state = {
-        mainSliderProducts: []
-    }
-  }
-  
-  componentDidMount = () => {
-    fetch('data/MainSliderProducts.json')
-      .then(res => res.json())
-      .then((data) => {
-        this.setState({
-          mainSliderProducts: data.MainSeedProducts
-          })
-        } 
-      )
-    }
 
   render() {
-    const { mainSliderProducts } = this.state
+    const { products } = this.props;
+
+    const sliderItem = (item) => {
+      return (
+        item.products &&
+        item.products.map( item => (
+          <Products
+            key={item.id}
+            description={item.description}
+            name={item.name}
+            url={item.url}
+          />
+        ))
+      );
+    };
 
     SwiperCore.use([Navigation, Pagination, Scrollbar]);
 
@@ -36,26 +35,19 @@ class SeedSlider extends Component {
           slidesPerView={4}
           navigation
           scrollbar>
-            {mainSliderProducts && 
-             mainSliderProducts.map( item => {
-                return (
-                <SwiperSlide key={item.id} className="mainSection-Slider-items-list">
-                  <div className="mainSection-Slider-items-line">
-                    <div className="mainSection-Slider-items">
-                      <img alt={item.name} src={item.url}/>
-                      <span className="mainSection-Slider-items-description">
-                        <span>{item.name}</span>
-                        <span>{item.description}</span>
-                      </span>
-                    </div>  
-                  </div>
-                </SwiperSlide>
-                )
-              })}    
+        {products && 
+        products.map ( item => {
+          return (
+            <SwiperSlide className="mainSection-Slider-items-list">
+            {sliderItem(item)}
+            </SwiperSlide>
+            )
+          }
+        )}
         </Swiper>
       </section>
     );
   }
 }
 
-export default SeedSlider;
+export default withRouter(SeedSlider);

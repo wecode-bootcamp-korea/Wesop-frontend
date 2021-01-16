@@ -11,14 +11,35 @@ import './Main.scss'
 
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      seedProducts: []
+    }
+  }
+
+  componentDidMount = () => {
+    fetch('data/MainSliderProducts.json')
+      .then(res => res.json())
+      .then((data) => {
+        console.log(data.MainSeedProducts);
+        this.setState({
+          seedProducts: data.MainSeedProducts
+          })
+        } 
+      )
+    }
+
   render() { 
+    const { seedProducts } = this.state;
+
     return (
       <div className="main">
         <Nav />
         <MainHeader />
         <CandleSlider />
         <NewProduct /> 
-        <SeedSlider />       
+        <SeedSlider products={seedProducts}/>       
         <Location />
         <Quote /> 
         {/*<Footer />*/}
