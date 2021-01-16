@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import './Slider.scss';
+import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
+import './CandleSlider.scss';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
-class Slider extends Component {
+class CandleSlider extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,15 +28,14 @@ class Slider extends Component {
   render() {
     const { mainSliderProducts } = this.state
 
-    SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+    SwiperCore.use([Navigation, Pagination, Scrollbar]);
 
     return (
       <section className="mainSection-Slider">
         <Swiper
           slidesPerView={4}
           navigation
-          scrollbar={{ 
-            draggable: true}}>
+          scrollbar>
             {mainSliderProducts && 
              mainSliderProducts.map( item => {
                 return (
@@ -59,4 +58,4 @@ class Slider extends Component {
   }
 }
 
-export default Slider;
+export default CandleSlider;
