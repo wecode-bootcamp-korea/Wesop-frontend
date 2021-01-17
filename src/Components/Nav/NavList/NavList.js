@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NavCategoryList from './NavCategoryList/NavCategoryList'
 import NavProductList from './NavProductList/NavProductList';
-import { categories } from './PropertyData'
+import { categories } from './PropertyData';
+import {CATEGORIES_API} from '../../../config';
 import './NavList.scss'
 
 
@@ -22,17 +23,17 @@ class NavList extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      categories : categories,
-    })
-    // fetch('address placeholder',
-    //  { method: 'GET'})
-    //  .then(res => res.json())
-    //  .then(res => {
-    //    this.setState({
-    //     categories: res,data,
-    //    });
-    //  });
+    // this.setState({
+    //   categories : categories,
+    // })
+    fetch(CATEGORIES_API,
+     { method: 'GET'})
+     .then(res => res.json())
+     .then(response => {
+       this.setState({
+        categories: response.data,
+       });
+     });
   }
 
   toggleSubcategoryBox = (idx) => {
@@ -84,8 +85,10 @@ class NavList extends Component {
   render () {
     const { categories, isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength, showMainImage } = this.state;
     const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox } = this;
-    
+    console.log(categories);
+    console.log(CATEGORIES_API);
     return (
+      
       <div className="NavList" onMouseLeave={removeAllBox}> 
 
         <div onMouseEnter={removeProductBox}>
