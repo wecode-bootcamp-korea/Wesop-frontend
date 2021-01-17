@@ -1,32 +1,17 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
-import './CandleSlider.scss';
+import Products from './Products';
+import './Slider.scss';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
-import Products from './Products';
 
 class SeedSlider extends Component {
 
   render() {
     const { products } = this.props;
-
-    const sliderItem = (item) => {
-      return (
-        item.products &&
-        item.products.map( item => (
-          <Products
-            key={item.id}
-            description={item.description}
-            name={item.name}
-            url={item.url}
-          />
-        ))
-      );
-    };
-
+    
     SwiperCore.use([Navigation, Pagination, Scrollbar]);
 
     return (
@@ -38,8 +23,13 @@ class SeedSlider extends Component {
         {products && 
         products.map ( item => {
           return (
-            <SwiperSlide className="mainSection-Slider-items-list">
-            {sliderItem(item)}
+            <SwiperSlide key={item.key} >
+            {<Products
+            key={item.id}
+            description={item.description}
+            name={item.name}
+            url={item.url}
+          />}
             </SwiperSlide>
             )
           }
@@ -50,4 +40,4 @@ class SeedSlider extends Component {
   }
 }
 
-export default withRouter(SeedSlider);
+export default SeedSlider;

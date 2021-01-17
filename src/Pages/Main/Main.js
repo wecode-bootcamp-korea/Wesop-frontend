@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Nav from '../../Components/Nav/Nav';
+//import Nav from '../../Components/Nav/Nav';
 import MainHeader from './Component/MainHeader';
-import CandleSlider from './Component/CandleSlider';
 import NewProduct from './Component/NewProduct';
-import SeedSlider from './Component/SeedSlider';
+import Slider from './Component/Slider';
 import Location from './Component/Location';
 import Quote from './Component/Quote';
 //import Footer from '../../Components/Footer/Footer';
@@ -14,6 +13,7 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
+      candleProducts : [],
       seedProducts: []
     }
   }
@@ -22,8 +22,8 @@ class Main extends Component {
     fetch('data/MainSliderProducts.json')
       .then(res => res.json())
       .then((data) => {
-        console.log(data.MainSeedProducts);
         this.setState({
+          candleProducts: data.MainCandleProducts,
           seedProducts: data.MainSeedProducts
           })
         } 
@@ -31,15 +31,15 @@ class Main extends Component {
     }
 
   render() { 
-    const { seedProducts } = this.state;
+    const { candleProducts, seedProducts } = this.state;
 
     return (
       <div className="main">
-        <Nav />
+        {/*<Nav />*/}
         <MainHeader />
-        <CandleSlider />
+        <Slider products={candleProducts}/>
         <NewProduct /> 
-        <SeedSlider products={seedProducts}/>       
+        <Slider products={seedProducts}/>       
         <Location />
         <Quote /> 
         {/*<Footer />*/}

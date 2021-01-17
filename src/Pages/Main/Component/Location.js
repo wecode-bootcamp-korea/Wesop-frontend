@@ -10,7 +10,6 @@ class Location extends Component {
   render() { 
     SwiperCore.use([Navigation, Autoplay]);
     return (       
-      
       <div className="mainSection-location">
         <div className="mainSection-location-leftside">
           <div className="mainSection-location-leftSide-innerWrapper">
