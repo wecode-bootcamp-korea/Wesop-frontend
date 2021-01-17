@@ -29,9 +29,10 @@ class NavList extends Component {
     fetch(CATEGORIES_API,
      { method: 'GET'})
      .then(res => res.json())
-     .then(response => {
+     .then(res => {
+       console.log(res);
        this.setState({
-        categories: response.data,
+        categories: res.categories,
        });
      });
   }
@@ -97,7 +98,7 @@ class NavList extends Component {
               return (
                 <li key={category.id}>
                   <button className={(showSubLength === idx) ? "selected" : ""} onMouseOver={() => toggleSubcategoryBox(idx)}>{category.type}</button>
-                  <span className={(showSubLength === idx) ? "length" : "hidden"}>{category.subCategories.length}</span>
+                  <span className={(showSubLength === idx) ? "length" : "hidden"}>{category.subcategories.length}</span>
                 </li>
               )
             })}
@@ -107,7 +108,7 @@ class NavList extends Component {
           <div className={isSubCategoryBoxVisible ? "" : "hidden"}>
             <ul className="subCategories">
               <NavCategoryList 
-              subCategories={ categories.length && categories[categoryIdx].subCategories } 
+              subCategories={ categories.length && categories[categoryIdx].subcategories } 
               toggleProductBox={toggleProductBox}
               toggleSubcategoryBox={toggleSubcategoryBox} 
               showProductLength={showProductLength}
@@ -119,7 +120,7 @@ class NavList extends Component {
           <div className={isProductBoxVisible ? "lastChild" : "hidden"}>
             <ul className="products">
               <NavProductList
-              productList={ categories.length && categories[categoryIdx].subCategories[subCategoryIdx].productList}
+              productList={ categories.length && categories[categoryIdx].subcategories[subCategoryIdx].productList}
               toggleProductBox={toggleProductBox} />
             </ul>            
           </div>
