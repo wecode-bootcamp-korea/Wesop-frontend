@@ -2,7 +2,7 @@ export const categories = [
   {
     id: 1,
     type: '스킨',
-    subCategories: [
+    subcategories: [
       {
         id: 1,
         name: '스킨 케어 기프트',
@@ -44,7 +44,7 @@ export const categories = [
   {
     id: 2,
     type: '헤어',
-    subCategories: [
+    subcategories: [
       {
         id: 1,
         name: '샴푸',
@@ -86,7 +86,7 @@ export const categories = [
   {
     id: 3,
     type: '바디 & 핸드',
-    subCategories: [
+    subcategories: [
       {
         id: 1,
         name: '핸드',
