@@ -9,7 +9,6 @@
     margin: 40px;
     padding: 60px 60px 40px 0;
     height: 600px;
-    border: 1px solid green;
 
 
     div {
@@ -23,17 +22,14 @@
       
       img {
         margin-left: 42%;
-        // transform: translate(50%, 0);
         width: 500px;
         height: 500px;
-        border: 2px solid purple;
       }
     }
 
 
     .productInfo {
       width: 460px;
-      border: 1px solid blue;
       
     }
 
@@ -50,14 +46,12 @@
 
   .instructionBox {
     display: flex;
-    margin: 40px;
+    margin: 120px 0;
     height: 836px;
-    border: 2px solid green;
   }
 
   .testing {
     margin: 40px;
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
     height: 300px;

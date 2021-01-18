@@ -5,6 +5,7 @@ import './ProductInstruction.scss';
 class ProductInstruction extends Component {
   render () {
     const { product, video } = this.props;
+    // console.log(Object.values(product.textures))
     return (
       <>
         <div className="imgWrapper">
@@ -23,11 +24,11 @@ class ProductInstruction extends Component {
             </div>
             <div>
               <p>텍스처</p>
-              <p>{Object.values(product.textures)}</p>
+              <p>{product.textures && product.textures.join(', ')}</p>
             </div>
             <div>
               <p>향</p>
-              <p>{Object.values(product.aromas)}</p>
+              <p>{product.aromas && product.aromas.join(', ')}</p>
             </div>
           </div>
         </div>
