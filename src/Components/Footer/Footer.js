@@ -103,9 +103,9 @@ class Footer extends Component {
               <ul className="Footer-main-link-introduction-inquiry">
                 <span>문의하기</span>
                 {
-                  FOOTER_INQUIRY.map((item) => {
+                  FOOTER_INQUIRY.map((linkName) => {
                   return(
-                    <li key={item.id}>{item.content}</li>
+                    <li key={linkName.id}>{linkName.content}</li>
                     )
                   })
                 }
@@ -113,9 +113,9 @@ class Footer extends Component {
               <ul className="Footer-main-link-introduction-brand">
                 <span>브랜드 소개</span>
                 {
-                  FOOTER_BRAND.map((item) => {
+                  FOOTER_BRAND.map((linkName) => {
                   return(
-                    <li key={item.id}>{item.content}</li>
+                    <li key={linkName.id}>{linkName.content}</li>
                     )
                   })
                 }
@@ -123,9 +123,9 @@ class Footer extends Component {
               <ul className="Footer-main-link-introduction-social">
                 <span>소셜</span>
                 {
-                  FOOTER_SOCIAL.map((item) => {
+                  FOOTER_SOCIAL.map((linkName) => {
                   return(
-                    <li key={item.id}><a href={item.url} target="_blank">{item.content}</a><i class="fas fa-location-arrow fa-xs"></i></li>
+                    <li key={linkName.id}><a href={linkName.url} target="_blank">{linkName.content}</a><i class="fas fa-location-arrow fa-xs"></i></li>
                     )
                   })
                 }
