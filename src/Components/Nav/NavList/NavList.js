@@ -24,18 +24,18 @@ class NavList extends Component {
   }
 
   componentDidMount() {
-    // this.setState({
-    //   categories : categories,
-    // })
-    fetch(CATEGORIES_API,
-     { method: 'GET'})
-     .then(res => res.json())
-     .then(res => {
-       console.log(res);
-       this.setState({
-        categories: res.categories,
-       });
-     });
+    this.setState({
+      categories : categories,
+    })
+    // fetch(CATEGORIES_API,
+    //  { method: 'GET'})
+    //  .then(res => res.json())
+    //  .then(res => {
+    //    console.log(res);
+    //    this.setState({
+    //     categories: res.categories,
+    //    });
+    //  });
   }
 
   toggleSubcategoryBox = (idx) => {
@@ -82,13 +82,20 @@ class NavList extends Component {
     })
   }
 
+  showAllLength = category => {
+    let result = 0;
+    for (let i = 0; i < category.subcategories.length; i++) {
+      result += (category.subcategories[i].productList.length);
+    }
+    return result;
+  }
+
 
 
   render () {
     const { categories, isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength, showMainImage } = this.state;
-    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox } = this;
-    console.log(categories);
-    console.log(CATEGORIES_API);
+    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength } = this;
+
     return (
       
       <div className="NavList" onMouseLeave={removeAllBox}> 
@@ -101,7 +108,7 @@ class NavList extends Component {
                   <button className={(showSubLength === idx) ? "selected" : ""} onMouseOver={() => toggleSubcategoryBox(idx)}>
                     <Link to="/category_list">{category.type}</Link>
                   </button>
-                  <span className={(showSubLength === idx) ? "length" : "hidden"}>{category.subcategories.length}</span>
+                  <span className={(showSubLength === idx) ? "length" : "hidden"}>{showAllLength(category)}</span>
                 </li>
               )
             })}

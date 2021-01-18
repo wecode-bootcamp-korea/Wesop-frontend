@@ -19,6 +19,12 @@ export const categories = [
             capacity: 25,
             price: 95000,
           },
+          {
+            id: 3,
+            name: '테스트 케이스',
+            capacity: 50,
+            price: 70000,
+          }
         ],
       },
       {
@@ -37,6 +43,12 @@ export const categories = [
             capacity: 50,
             price: 75000,
           },
+          {
+            id: 3,
+            name: '테스팅',
+            capacity: 20,
+            price: 20000,
+          }
         ],
       },
     ],
@@ -79,6 +91,12 @@ export const categories = [
             capacity: 50,
             price: 75000,
           },
+          {
+            id: 3,
+            name: '테스팅 제품',
+            capacity: 45,
+            price: 40000,
+          }
         ],
       },
     ],
