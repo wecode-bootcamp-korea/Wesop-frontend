@@ -8,7 +8,6 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
 class SeedSlider extends Component {
-
   render() {
     const { products } = this.props;
     
