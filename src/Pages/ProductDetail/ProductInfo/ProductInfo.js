@@ -8,13 +8,15 @@ class ProductInfo extends Component {
 
   render () {
     const { product } = this.props;
+    // console.log(product)
+    
     return (
       <div className="ProductInfo">
         <div className="nameDescriptionWrap">
           <div className="categoryBtns">
             <ul>
               <li><button> {product.category} </button></li>
-              <li><button> {product.subcategories && product.subcategories.join(', ')} </button></li>
+              <li><button> {product.subcategories?.join(', ')} </button></li>
             </ul>
           </div>
           <p className="productName">{product.name}</p>
@@ -24,6 +26,7 @@ class ProductInfo extends Component {
           <div>
             <p>피부 타입</p>
             <p>{product.skin_types && product.skin_types.join(', ')}</p>
+            {/* <p>{product.skin_types.join(', ')}</p> */}
           </div>
           <div>
             <p>사용감</p>

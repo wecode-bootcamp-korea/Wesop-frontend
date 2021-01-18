@@ -48,7 +48,8 @@ class ProductDetail extends Component {
               {/* <img alt={product.name} src={image}></img> */}
             </div>
           <div className="productInfo">
-            { product ? <ProductInfo product = {product}/> : null }
+            { <ProductInfo product = { product }/> }
+            {/* { product ? <ProductInfo product = {product}/> : null } */}
           </div>
 
         </div>
