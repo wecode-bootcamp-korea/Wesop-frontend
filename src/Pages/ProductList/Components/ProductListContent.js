@@ -10,7 +10,8 @@ class ProductListContent extends Component {
     super();
     this.state = {
         products: [],
-        isHovering: false
+        //isHovering: false
+        isHovering:''
     }
   }
   
@@ -25,8 +26,11 @@ class ProductListContent extends Component {
       )
     }
 
-  handleMouseHover = () => {
-    this.setState((prevState) => ({ isHovering: !prevState.isHovering}));
+  handleMouseHover = (productID) => {
+    console.log('productId', productID);
+    this.setState(() => (
+      { isHovering: productID})
+    );
   }
   
   render () {
@@ -45,10 +49,11 @@ class ProductListContent extends Component {
         products.map(product => {
           const [ image ] = Object.values(product.media);
           const { index } = image.match(IMAGE_DIVIDER_REGEXP);
+          const productID = product.id;
           return (
             <div 
-              onMouseEnter={this.handleMouseHover}
-              onMouseLeave={this.handleMouseHover}
+              onMouseEnter={() => this.handleMouseHover(productID)}
+              onMouseLeave={() => this.handleMouseHover(productID)}
               className="ProductListContent-item">
             <div className="ProductListContent-detail">
               <div className="ProductListContent-detail-image">
@@ -75,7 +80,7 @@ class ProductListContent extends Component {
                 </div>
               </div>
             </div>
-            { this.state.isHovering &&
+            { this.state.isHovering === productID &&
             <div className="ProductListContent-addcart">
               <span>카트에 추가</span><span>-</span><span>₩{Math.floor(product.price).toString().replace(NUMBER_FORMAT_REGEXP, ",")}</span>
             </div> }
