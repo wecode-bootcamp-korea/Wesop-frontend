@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Link, reactRouter } from 'react-router-dom';
 import Nav from '../../Components/Nav/Nav';
-import ProductInfo from './ProductInfo/ProductInfo';
-import ProductInstruction from './ProductInstruction/ProductInstruction';
-import './ProductDetail.scss';
+import ProductsInfo from './ProductsInfo/ProductsInfo';
+import ProductsInstruction from './ProductsInstruction/ProductsInstruction';
+import './ProductsDetail.scss';
 
 
-class ProductDetail extends Component {
+class ProductsDetail extends Component {
   constructor() {
     super();
     this.state = {
-      product: [{
+      products: [{
         id: 1,
         name: "아이 리무버",
         img: "../../images/example.png",
@@ -26,21 +26,21 @@ class ProductDetail extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch('address placeholder',
-  //    { method: 'GET'})
-  //    .then(res => res.json())
-  //    .then(res => {
-  //      this.setState({
-  //       product: res.data,
-  //      });
-  //    });
-  // }
+  componentDidMount() {
+    fetch('address placeholder',
+     { method: 'GET'})
+     .then(res => res.json())
+     .then(res => {
+       this.setState({
+        products: res.products,
+       });
+     });
+  }
 
   render () {
-    const { product } = this.state;
+    const { products } = this.state;
     return (
-      <div className="ProductDetail">
+      <div className="ProductsDetail">
         <Nav /> 
         <div className="detailHeader">
             <div>
@@ -48,11 +48,11 @@ class ProductDetail extends Component {
             </div>
             <div>
               <img alt="testing" src="https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"></img>
-              {/* <img alt={product[0].name} src={product[0].img}></img> */}
-              {/* selected product data's image file */}
+              {/* <img alt={products[0].name} src={products[0].img}></img> */}
+              {/* selected products data's image file */}
             </div>
-          <div className="productInfo">
-            <ProductInfo product = {product} />
+          <div className="productsInfo">
+            <ProductsInfo products = {products} />
           </div>
 
         </div>
@@ -63,12 +63,12 @@ class ProductDetail extends Component {
         </div>
 
         <div className="instructionBox">
-          <ProductInstruction />
+          <ProductsInstruction />
 
         </div>
 
         <div className="testing">
-          related product Slider component // unclear if we will implement the slider in this page
+          slider 섹션
         </div>
 
 
@@ -80,6 +80,6 @@ class ProductDetail extends Component {
 
 }
 
-export default ProductDetail;
+export default ProductsDetail;
 
 
