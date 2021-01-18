@@ -16,7 +16,9 @@ class NavCategoryList extends Component {
         {subCategories && subCategories.map((subCategory, idx) => {
           return (
             <li key={subCategory.id}>
-              <button className={(showProductLength === idx) ? "selected" : ""} onMouseOver={() => toggleProductBox(idx)}>{subCategory.name}</button>
+              <button className={(showProductLength === idx) ? "selected" : ""} onMouseOver={() => toggleProductBox(idx)}>
+                <Link to="/product_list">{subCategory.name}</Link>
+              </button>
               <span className={(showProductLength === idx) ? "length" : "hidden"}>{subCategory.productList.length}</span>
             </li>
           )

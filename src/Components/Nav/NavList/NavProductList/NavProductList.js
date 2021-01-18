@@ -14,11 +14,13 @@ class NavProductList extends Component {
 
     return (
       <>
-        <Link to="/category_list"><button className="showAll">모두 보기</button></Link> 
+        <Link to="/product_list"><button className="showAll">모두 보기</button></Link> 
         {productList && productList.map((product) => {
           return (
             <li key={product.id}>
-              <button onClick={this.redirectToDetail}>{product.name}</button>
+              <button onClick={this.redirectToDetail}>
+                <Link to={`/product_detail/${product.id}`}>{product.name}</Link>
+              </button>
             </li>
           )
         })}
@@ -30,4 +32,4 @@ class NavProductList extends Component {
 
 }
 
-export default withRouter(NavProductList);
+export default NavProductList;

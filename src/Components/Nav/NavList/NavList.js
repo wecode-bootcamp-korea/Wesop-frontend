@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import NavCategoryList from './NavCategoryList/NavCategoryList'
 import NavProductList from './NavProductList/NavProductList';
 import { categories } from './PropertyData';
@@ -97,7 +98,9 @@ class NavList extends Component {
             {categories && categories.map((category, idx) => {
               return (
                 <li key={category.id}>
-                  <button className={(showSubLength === idx) ? "selected" : ""} onMouseOver={() => toggleSubcategoryBox(idx)}>{category.type}</button>
+                  <button className={(showSubLength === idx) ? "selected" : ""} onMouseOver={() => toggleSubcategoryBox(idx)}>
+                    <Link to="/category_list">{category.type}</Link>
+                  </button>
                   <span className={(showSubLength === idx) ? "length" : "hidden"}>{category.subcategories.length}</span>
                 </li>
               )
