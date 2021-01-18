@@ -5,6 +5,7 @@ class Products extends Component {
   
   render() {
     const { name, url, description} = this.props;
+    
     return (
       <div className="mainSection-Slider-items-list">
         <div className="mainSection-Slider-items-line">

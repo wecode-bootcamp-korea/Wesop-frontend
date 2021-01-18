@@ -19,15 +19,15 @@ class SeedSlider extends Component {
           slidesPerView={4}
           navigation
           scrollbar>
-        {products && 
-        products.map ( item => {
+        {products.length && 
+        products.map ( product => {
           return (
-            <SwiperSlide key={item.key} >
+            <SwiperSlide key={product.key} >
             {<Products
-            key={item.id}
-            description={item.description}
-            name={item.name}
-            url={item.url}
+            key={product.id}
+            description={product.description}
+            name={product.name}
+            url={product.url}
           />}
             </SwiperSlide>
             )
