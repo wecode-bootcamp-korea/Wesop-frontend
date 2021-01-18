@@ -1,9 +1,6 @@
-  @import '../../../Styles/common.scss';
+@import '../../../Styles/common.scss';
 
 .Login {
-  
-  div {
-
     .LoginModal {
       display: flex;
       flex-direction: column;
@@ -14,14 +11,6 @@
       padding: 50px 40px;
       width: 500px;
       min-height: 380px;
-
-     .returnButton{
-       position: fixed;
-        top: 50px;
-        left: 40px;
-        display: none;
-        // cursor: default;
-      }
      
       .closeButton {
         position: fixed;
@@ -51,30 +40,40 @@
         border-width: 0 0 1px;
         // position: relative;
         width: 100%;
+
+        // login email형식오류시 에러메세지
+        // .emailErrorMessage {
+        //   display: block;
+        
+          
+        // }
       }
 
-      // span {
-      //   // position: absolute;
-      //   left: 40px;
-      //   font-size: 15px;
-        
-      }
+
+      
 
      button {
        height : 45px;
+       width : 100%;
        background-color: #333333;
        color: white;
        cursor: pointer;
        &:hover {
          background-color: black;
        }
-
       }
-      
-    }
-   
-}
 
-.hidden {
-  display: none;
-}
+      
+      .alert {
+        font-size: 1.5rem;
+        background-color: $WesopWhite;
+        color: #666666;
+        line-height: 1;
+        border-style: solid;
+        border-width: 0 0 1px;
+        // position: relative;
+        width: 100%;
+        border-bottom: 1px solid red;
+      }
+    }     
+  }
