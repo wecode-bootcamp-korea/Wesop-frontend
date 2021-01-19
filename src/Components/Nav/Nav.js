@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Login from ‘./Login/Login’;
+import Login from './Login/Login';
 import NavList from './NavList/NavList'; // 성현님 컴포넌트
 import './Nav.scss';
 
@@ -52,9 +52,9 @@ class Nav extends Component {
           </ul>
          </div>
          
-        {/* <div className={isLoginShown ?'show' : 'hide'}>
+        <div className={isLoginShown ?'show' : 'hide'}>
             <Login />
-        </div> */}
+        </div>
         <div className={isNavListShown ? 'showNavList' : 'hideNavList'}>
             <NavList isCategoryBoxVisible={isCategoryBoxVisible} /> 
         </div>
