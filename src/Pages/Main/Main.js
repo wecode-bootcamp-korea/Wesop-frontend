@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import Nav from '../../Components/Nav/Nav';
 import MainHeader from './Component/MainHeader';
 import NewProduct from './Component/NewProduct';
 import Slider from './Component/Slider';
@@ -35,7 +34,6 @@ class Main extends Component {
 
     return (
       <div className="main">
-        {/*<Nav />*/}
         <MainHeader />
         <Slider products={candleProducts}/>
         <NewProduct /> 
