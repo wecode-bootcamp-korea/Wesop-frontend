@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, reactRouter } from 'react-router-dom';
 import { PRODUCTS_API } from '../../config';
-import Nav from '../../Components/Nav/Nav';
 import ProductInfo from './ProductInfo/ProductInfo';
 import ProductInstruction from './ProductInstruction/ProductInstruction';
 import './ProductDetail.scss';
@@ -35,7 +34,6 @@ class ProductDetail extends Component {
 
     return (
       <div className="ProductDetail">
-        <Nav /> 
         <div className="detailHeader">
             <div>
               <Link to='/'>Wesop</Link>

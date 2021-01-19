@@ -5,7 +5,7 @@ import './ProductInstruction.scss';
 class ProductInstruction extends Component {
   render () {
     const { product, video_url } = this.props;
-    // console.log(Object.values(product.textures))
+    
     return (
       <>
         <div className="imgWrapper">
