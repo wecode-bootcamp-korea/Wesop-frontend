@@ -25,16 +25,16 @@ class ProductInfo extends Component {
         <div className="detailsWrap">
           <div>
             <p>피부 타입</p>
-            <p>{product.skin_types && product.skin_types.join(', ')}</p>
+            <p>{product.skin_types?.join(', ')}</p>
             {/* <p>{product.skin_types.join(', ')}</p> */}
           </div>
           <div>
             <p>사용감</p>
-            <p>{product.feels && product.feels.join(', ')}</p>
+            <p>{product.feels?.join(', ')}</p>
           </div>
           <div>
             <p>주요성분</p>
-            <p>{product.ingredients && product.ingredients.join(', ')}</p>
+            <p>{product.ingredients?.join(', ')}</p>
           </div>
         </div>
         <button className="addToCartBtn"> 카트에 추가 - ₩{Math.floor(product.price).toString().replace(NUMBER_FORMAT_REGEXP, ",")} </button>

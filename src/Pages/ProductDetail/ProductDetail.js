@@ -6,8 +6,6 @@ import ProductInfo from './ProductInfo/ProductInfo';
 import ProductInstruction from './ProductInstruction/ProductInstruction';
 import './ProductDetail.scss';
 
-const regex = /::/;
-
 class ProductDetail extends Component {
   constructor() {
     super();
@@ -30,12 +28,11 @@ class ProductDetail extends Component {
 
   render () {
     const { product } = this.state;
-    // let image_url = product.media["url_0"];
-    // let video_url = Object.values(product.media[1]);
-    // let idx = image_url.match(regex).index;
-    // let vidx = video_url.match(regex).index;
-    // let image = image_url.slice(0, idx);
-    // let video = video_url.slice(0, vidx);
+    let image = product.media?.[0]
+    let video = product.media?.[1]
+    let image_url = image?.substring(0, image.indexOf('::image_url'));
+    let video_url = video?.substring(0, video.indexOf('::video_url'));
+
     return (
       <div className="ProductDetail">
         <Nav /> 
@@ -44,12 +41,11 @@ class ProductDetail extends Component {
               <Link to='/'>Wesop</Link>
             </div>
             <div>
-              <img alt="testing" src="https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"></img>
-              {/* <img alt={product.name} src={image}></img> */}
+              {/* <img alt="testing" src="https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"></img> */}
+              <img alt={product.name} src={image_url}></img>
             </div>
           <div className="productInfo">
             { <ProductInfo product = { product }/> }
-            {/* { product ? <ProductInfo product = {product}/> : null } */}
           </div>
 
         </div>
@@ -60,8 +56,7 @@ class ProductDetail extends Component {
         </div>
 
         <div className="instructionBox">
-          {/* <ProductInstruction product = {product} video = { video } /> */}
-          {product ? <ProductInstruction product = {product}/> : null}
+          <ProductInstruction product = {product} video_url = {video_url} />
         </div>
 
         <div className="testing">
