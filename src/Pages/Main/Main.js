@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Slider from './Slider';
+import Footer from '../../Components/Footer/Footer';
 import './Main.scss'
 
 class Main extends Component {
@@ -73,7 +74,8 @@ class Main extends Component {
             <div className="mainSection-quote-content-title">‘It is high time to rekindle the stars.’</div>
             <div className="mainSection-quote-content-writer">Guillaume Apollinaire</div>
           </div>
-        </section>  
+        </section>
+        <Footer />
       </div>
     );
   }
