@@ -1,45 +1,57 @@
 import React, { Component } from "react";
+import './DefaultForm.scss' ;
 
 class DefaultForm extends Component {
   constructor() {
     super();
     this.state = {
-      isError: false,
       email: '',
+      isValid: false,
+      isError: false,
     }
   }
 
-  handleContinueButton = () => {
-        
-    fetch("http://192.168.200.139:8000/user/check", {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.state.email,
-        }),
-      })
-  
-      // Backend response 처리
-      .then((response) => response.json())
-      .then((response) => {
-        // response 메세지에 따른 로직처리
-        console.log(response.message);
-        this.props.handleCurrentView(response.message);
-      })  
-  }
-
-  // // 사용자가 입력한 id값 저장 >>> state
-  handleChange = (e) => {
+  // 사용자가 입력한 id값 저장 >>> state
+  handleEmailValue = (e) => {
     this.setState({
       email: e.target.value,
     });
   };
+  
+  handleContinueButton = () => {   
+    fetch("http://10.58.5.188:8000/user/check", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.email,
+      })
+    })
+    .then((response) => response.json())
+    .then((response) => {this.props.handleCurrentView(response.message); 
+    })  
+    }
+  
+  checkEmailState = () => {
+    const { email } = this.state;
+    const isValid = (email.includes("@") && email.length > 5);
+    this.setState ({
+      isValid
+    });
+  //   // if (this.state.isvalid === false) {
+  //   //   this.setState({
+  //   //     isError: true
+  //   //   })   
+  //   }
+  //   // this.state.isValid && this.handleContinueButton();
+  // }
+
+
 
 
   render() {
     return (
       <>
         <div className="head">
-            <span className="closeButton" onClick={this.props.handleLoginModal}>
+            <span className="closeButton" onClick={this.handleButton}>
               X
             </span>
           </div>
@@ -49,23 +61,19 @@ class DefaultForm extends Component {
           </div>
           <div className="LoginEmail">
             <input
-              type="text"
+              type="email"
               placeholder="이메일 주소"
-              // value={this.state.email}
-              onChange={this.handleChange}
-              className={this.state.isError ? 'alert' : ''}
+              onChange={this.handleEmailValue}
             />
-            {this.state.isError ? <div>msg</div> : null}
+            <div className={this.state.isError ?  'active' : 'inactive'}>유효한 이메일을 입력해주세요.</div>
+            
           </div>
           <div className="BtnWrap">
             <button
               className="continueBt"
               type="button"
-              onClick={() => {
-                this.handleContinueButton();
-
-              }}
-            >
+              onClick={this.checkEmailState}
+              >
               계속
             </button>
           </div>

@@ -40,9 +40,7 @@ class Nav extends Component {
         </div>
         <div className={isLoginShown ? "show" : "hide"}>
           <Login handleLoginModal={this.handleLoginModal} />
-        </div>
-      
-      
+        </div>      
       </nav>
 
       

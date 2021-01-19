@@ -4,11 +4,7 @@ import SignInForm from "./SignInForm/SignInForm";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import DefaultForm from "./DefaultForm/DefaultForm";
 
-const nextMapper = {
-  signIn: <SignInForm />,
-  signUp: <SignUpForm />,
-  default: <DefaultForm />,
-}
+
 
 class Login extends Component {
   constructor() {
@@ -18,28 +14,25 @@ class Login extends Component {
     };
   }
   
-  // componentDidMount() {
-  //   this.setState({
-  //     currentView: 'default',
-  //   })
-  // }
-
   handleCurrentView = (value) => {
-    // if (value === 'INVALID_EMAIL') {
-    //   value = 'default';
-    // }
     this.setState({
       currentView: value,
     })
   };
 
+
  render() {
-   console.log(this.state.currentView)
+  const nextMapper = {
+    signIn: <SignInForm />,
+    signUp: <SignUpForm />,
+    default: <DefaultForm handleCurrentView={this.handleCurrentView} />,
+  }
+
     return (
       <div className="Login">
         <div className="LoginModal">
-          {this.state.currentView === "default" ? 
-          <DefaultForm handleCurrentView={this.handleCurrentView}/> : this.state.currentView === "signIn" ? nextMapper["signIn"] : nextMapper["signUp"]}
+          {nextMapper[this.state.currentView]}
+        
         </div>
       </div>
     );

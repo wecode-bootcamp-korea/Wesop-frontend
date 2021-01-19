@@ -38,19 +38,8 @@
         line-height: 1;
         border-style: solid;
         border-width: 0 0 1px;
-        // position: relative;
         width: 100%;
-
-        // login email형식오류시 에러메세지
-        // .emailErrorMessage {
-        //   display: block;
-        
-          
-        // }
       }
-
-
-      
 
      button {
        height : 45px;
@@ -61,19 +50,10 @@
        &:hover {
          background-color: black;
        }
+
       }
 
       
-      .alert {
-        font-size: 1.5rem;
-        background-color: $WesopWhite;
-        color: #666666;
-        line-height: 1;
-        border-style: solid;
-        border-width: 0 0 1px;
-        // position: relative;
-        width: 100%;
-        border-bottom: 1px solid red;
-      }
+  
     }     
   }
