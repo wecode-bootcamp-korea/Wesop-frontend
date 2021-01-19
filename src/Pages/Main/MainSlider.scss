@@ -1,0 +1,29 @@
+.mainSection-Slider {
+  width: 100%;
+  height: 650px;
+  margin: 50px 0;
+  background-color: teal;
+  overflow: hidden;
+
+  .mainSection-Slider-items {
+    width: inherit;
+    height: 500px;
+    margin-top: 50px;
+    background-color: tomato;
+    
+    .mainSection-Slider-items-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+      span {
+        font-size:14px;
+        
+        &:first-child {
+          margin: 10px 0px
+        }
+      }
+    }
+  }
+}
