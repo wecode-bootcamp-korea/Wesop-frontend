@@ -4,15 +4,16 @@
   align-items: center;
   width: 100vw;
 
+
   div {
     width: 33vw;
     height: 100vh;
     border-right: 1px solid rgb(224, 224, 224);
     background-color: #faf8f0;
 
-    &:last-child {
-      width: calc(34vw - 2px);
-      border: none;
+    img {
+      width: 100%;
+      height: 100%;
     }
 
     ul {
@@ -25,16 +26,32 @@
         border: none;
         border-bottom: 1px solid transparent;
         background: none;
-        color: gray;
         font-size: 25px;
         font-family: sans-serif;
         outline: none;
+
+        &.selected {
+          cursor: pointer;
+          border-bottom: 1px solid gray;
+          padding-bottom: 3px;
+        }
 
         &:hover {
           cursor: pointer;
           border-bottom: 1px solid gray;
           padding-bottom: 3px;
         }
+
+        a {
+          color: gray;
+          text-decoration: none;
+        }
+      }
+      .length {
+        vertical-align: 10px;
+        color: gray;
+        font-size: 14px;
+        margin-left: 10px;
       }
     }
 
@@ -44,7 +61,18 @@
 
     .subCategories, .products {
       margin-top: 30vh;
+      
+      a {
+        .showAll {
+          margin-bottom: 20px;
+        }
+      }
     }
+  }
+
+  .lastChild {
+    width: calc(34vw - 2px);
+    border: none;
   }
 
 

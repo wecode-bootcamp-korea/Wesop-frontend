@@ -9,21 +9,27 @@ class Nav extends Component {
     this.state= {
       isLoginShown: false,
       isNavListShown: false,
+      // isCategoryBoxVisible: false,
     }
   }
+
   handleLoginModal = () => {
     this.setState({
       isLoginShown: !this.state.isLoginShown,
     })
   }
+
   handleNavListModal = () => {
     this.setState({
       isNavListShown: !this.state.isNavListShown,
     })
   }
 
+  
+
+
   render () {
-    const { isLoginShown, isNavListShown } = this.state;
+    const { isLoginShown, isNavListShown, isCategoryBoxVisible } = this.state;
     return (
       <nav className='Nav'>
         <div className="NavLeftWrap">
@@ -50,7 +56,7 @@ class Nav extends Component {
             <Login />
         </div> */}
         <div className={isNavListShown ? 'showNavList' : 'hideNavList'}>
-            <NavList isNavListShown={isNavListShown} /> 
+            <NavList isCategoryBoxVisible={isCategoryBoxVisible} /> 
         </div>
       </nav>
     );
