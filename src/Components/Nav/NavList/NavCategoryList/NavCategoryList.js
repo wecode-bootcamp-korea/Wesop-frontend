@@ -8,7 +8,7 @@ class NavCategoryList extends Component {
 
 
   render () {
-    const { subCategories, toggleProductBox, showProductLength, toggleShowAllBox } = this.props; // categoryList => category array with certain categoryType id?
+    const { subCategories, toggleProductBox, showProductLength, toggleShowAllBox } = this.props; 
   
     return (
       <>
