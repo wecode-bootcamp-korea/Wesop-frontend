@@ -42,7 +42,7 @@ class DefaultForm extends Component {
   //   //   })   
   //   }
   //   // this.state.isValid && this.handleContinueButton();
-  // }
+   }
 
 
 

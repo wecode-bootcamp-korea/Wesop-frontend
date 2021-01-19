@@ -9,7 +9,6 @@ import Nav from './Components/Nav/Nav';
 import CategoryList from './Pages/CategoryList/CategoryList';
 import ProductList from './Pages/ProductList/ProductList';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
-import SignUpForm from './Components/Nav/Login/SignUpForm/SignUpForm';
 
 class Routes extends React.Component {
   render() {
