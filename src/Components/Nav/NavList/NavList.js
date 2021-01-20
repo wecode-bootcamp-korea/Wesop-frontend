@@ -24,18 +24,17 @@ class NavList extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      categories : categories,
-    })
-    // fetch(CATEGORIES_API,
-    //  { method: 'GET'})
-    //  .then(res => res.json())
-    //  .then(res => {
-    //    console.log(res);
-    //    this.setState({
-    //     categories: res.categories,
-    //    });
-    //  });
+    // this.setState({
+    //   categories : categories,
+    // })
+    fetch(CATEGORIES_API,
+     { method: 'GET'})
+     .then(res => res.json())
+     .then(res => {
+       this.setState({
+        categories: res.categories,
+       });
+     });
   }
 
   toggleSubcategoryBox = (idx) => {
@@ -82,6 +81,19 @@ class NavList extends Component {
     })
   }
 
+  goToProductDetail = (id) => {
+    this.props.handleNavListModal();
+    this.props.history.push(`/product_detail/${id}`);
+  }
+
+  // goToCategoryList = (id) => {
+  //   this.props.history.push(`/categories/${id}`);
+  // }
+
+  // goToProductList = (id) => {
+  //   this.props.history.push(`/product_list/${id}`);
+  // }
+
   showAllLength = category => {
     let result = 0;
     for (let i = 0; i < category.subcategories.length; i++) {
@@ -94,7 +106,7 @@ class NavList extends Component {
 
   render () {
     const { categories, isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength, showMainImage } = this.state;
-    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength } = this;
+    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength, goToProductDetail } = this;
 
     return (
       
@@ -131,7 +143,9 @@ class NavList extends Component {
             <ul className="products">
               <NavProductList
               productList={ categories.length && categories[categoryIdx].subcategories[subCategoryIdx].productList}
-              toggleProductBox={toggleProductBox} />
+              toggleProductBox={toggleProductBox} 
+              goToProductDetail={goToProductDetail}
+              />
             </ul>            
           </div>
 
@@ -145,4 +159,4 @@ class NavList extends Component {
   }
 }
 
-export default NavList;
+export default withRouter(NavList);

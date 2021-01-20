@@ -4,10 +4,6 @@ import './NavProductList.scss'
 
 
 class NavProductList extends Component {
-  // redirectToDetail = e => {
-  //   e.preventDefault();
-  //   this.props.history.push('/product_detail');
-  // }
 
   render () {
     const { productList } = this.props; // product list with certain category id ? 
@@ -18,8 +14,8 @@ class NavProductList extends Component {
         {productList && productList.map((product) => {
           return (
             <li key={product.id}>
-              <button onClick={this.redirectToDetail}>
-                <Link to={`/product_detail/${product.id}`}>{product.name}</Link>
+              <button onClick={() => this.props.goToProductDetail(product.id)}>
+                {product.name}
               </button>
             </li>
           )
@@ -32,4 +28,4 @@ class NavProductList extends Component {
 
 }
 
-export default NavProductList;
+export default withRouter(NavProductList);

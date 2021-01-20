@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './NavCategoryList.scss'
 
 
@@ -29,4 +29,4 @@ class NavCategoryList extends Component {
 
 }
 
-export default NavCategoryList;
+export default withRouter(NavCategoryList);

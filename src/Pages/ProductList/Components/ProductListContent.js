@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { PRODUCT_API } from '../../../config';
 import './ProductListContent.scss';
 
@@ -32,6 +33,10 @@ class ProductListContent extends Component {
       { isHovering: productID})
     );
   }
+
+  goToProductDetail = (id) => {
+    this.props.history.push(`/product_detail/${id}`)
+  }
   
   render () {
     const { products } = this.state;
@@ -51,22 +56,25 @@ class ProductListContent extends Component {
           const { index } = image.match(IMAGE_DIVIDER_REGEXP);
           const productID = product.id;
           return (
-            <div 
+          <div 
               onMouseEnter={() => this.handleMouseHover(productID)}
               onMouseLeave={() => this.handleMouseHover(productID)}
-              className="ProductListContent-item">
+              className="ProductListContent-item"
+              >
             <div className="ProductListContent-detail">
-              <div className="ProductListContent-detail-image">
-                <img width="400px"src={image.slice(0, index)} alt={product.name} />
-              </div>
-              <div className="ProductListContent-detail-info">
-                <div className="ProductListContent-detail-info-name">
-                  <span>{product.name}</span>
+              <div className="ProductListContent-detail-upperBox" onClick={() => this.goToProductDetail(productID)}>
+                <div className="ProductListContent-detail-image" >
+                  <img width="400px"src={image.slice(0, index)} alt={product.name} />
                 </div>
-                <div className="ProductListContent-detail-info-price">
-                  <span>{product.size}</span>
-                  <span>/</span>
-                  <span>₩{Math.floor(product.price).toString().replace(NUMBER_FORMAT_REGEXP, ",")}</span>
+                <div className="ProductListContent-detail-info">
+                  <div className="ProductListContent-detail-info-name">
+                    <span>{product.name}</span>
+                  </div>
+                  <div className="ProductListContent-detail-info-price">
+                    <span>{product.size}</span>
+                    <span>/</span>
+                    <span>₩{Math.floor(product.price).toString().replace(NUMBER_FORMAT_REGEXP, ",")}</span>
+                  </div>
                 </div>
               </div>
               <div className="ProductListContent-detail-type">
@@ -92,4 +100,4 @@ class ProductListContent extends Component {
   }
 }
 
-export default ProductListContent;
+export default withRouter(ProductListContent);

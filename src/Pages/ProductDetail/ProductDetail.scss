@@ -1,12 +1,15 @@
 @import '../../Styles/common.scss';
 
+
 .ProductDetail {
-   font-size: 14px;
+  background-color: $wesop_white;
+  font-size: 14px;
+  padding-top: 70px;
 
   .detailHeader {
     display: flex;
     justify-content: space-between;
-    margin: 40px;
+    margin: 0 40px;
     padding: 60px 60px 40px 0;
     height: 600px;
 
@@ -18,11 +21,15 @@
         font-size: xx-large;
         color: black;
       }
-      
+  
+    }
+
+    .imgBox {
+      overflow: hidden;
+      margin-left: 26%;
       
       img {
-        margin-left: 42%;
-        width: 500px;
+        width: 400px;
         height: 500px;
       }
     }
@@ -50,16 +57,9 @@
     height: 836px;
   }
 
-  .testing {
-    margin: 40px;
-    display: flex;
-    justify-content: space-between;
-    height: 300px;
-    padding: auto 30px;
+  .slider {
+  
 
-    div {
-      border: 1px solid blue;
-    }
   }
 
   
