@@ -26,12 +26,12 @@ class SeedSlider extends Component {
           //const [ image ] = Object.values(product.media);
           //const { index } = image.match(IMAGE_DIVIDER_REGEXP);
           return (
-            <SwiperSlide key={product.key} >
+            <SwiperSlide key={product.id} >
             {<Products
             key={product.id}
             description={product.description}
             name={product.name}
-            url={console.log(product.media[Object.keys(product.media)[0]])}
+            
           />}
             </SwiperSlide>
             )
@@ -44,3 +44,5 @@ class SeedSlider extends Component {
 }
 
 export default SeedSlider;
+
+//console.log(product.media[Object.keys(product.media)[0]]
