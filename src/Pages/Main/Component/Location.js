@@ -32,11 +32,11 @@ class Location extends Component {
             navigation
             >
             <SwiperSlide>
-              <img alt="롯데월드몰" width="1100px" src="https://www.aesop.com/u1nb1km7t5q7/78lSsJHoVvtMYVyynstu3e/cc94bae54e56d636857ab94f2017b0be/Aesop-KR-Lotte-World-Tower-Mall-Hero-Bleed-Desktop-2880x1620px.jpg" />
+              <img alt="롯데월드몰" src="https://www.aesop.com/u1nb1km7t5q7/78lSsJHoVvtMYVyynstu3e/cc94bae54e56d636857ab94f2017b0be/Aesop-KR-Lotte-World-Tower-Mall-Hero-Bleed-Desktop-2880x1620px.jpg" />
               <span>이솝 롯데월드몰</span>
             </SwiperSlide>  
             <SwiperSlide>
-              <img alt="삼청점" width="1100px" src="https://www.aesop.com/u1nb1km7t5q7/1Ej0vXgx5eD9wZ15S03LO4/3c8083d6f26f08d595a672150989eb98/Aesop-KR-Samcheong-Hero-Desktop-2880x1620.jpg" />
+              <img alt="삼청점" src="https://www.aesop.com/u1nb1km7t5q7/1Ej0vXgx5eD9wZ15S03LO4/3c8083d6f26f08d595a672150989eb98/Aesop-KR-Samcheong-Hero-Desktop-2880x1620.jpg" />
               <span>이솝 삼청점</span>
             </SwiperSlide>  
         </Swiper>

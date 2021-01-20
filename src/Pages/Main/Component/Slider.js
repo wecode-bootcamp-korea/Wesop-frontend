@@ -7,6 +7,8 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
+//const IMAGE_DIVIDER_REGEXP = /::/;
+
 class SeedSlider extends Component {
   render() {
     const { products } = this.props;
@@ -19,15 +21,17 @@ class SeedSlider extends Component {
           slidesPerView={4}
           navigation
           scrollbar>
-        {products.length && 
+        {products && 
         products.map ( product => {
+          //const [ image ] = Object.values(product.media);
+          //const { index } = image.match(IMAGE_DIVIDER_REGEXP);
           return (
             <SwiperSlide key={product.key} >
             {<Products
             key={product.id}
             description={product.description}
             name={product.name}
-            url={product.url}
+            url={console.log(product.media[Object.keys(product.media)[0]])}
           />}
             </SwiperSlide>
             )
