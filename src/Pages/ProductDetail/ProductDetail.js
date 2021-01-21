@@ -44,17 +44,14 @@ class ProductDetail extends Component {
     let image = {};
     let video = {};
     for (let i = 0; i < arr.length; i++) {
-      arr[i].includes('::image') ?
-      image['image'] =  arr[i].substring(0, arr[i].indexOf('::image')) :
-      video['video'] = arr[i].substring(0, arr[i].indexOf('::video'))
+      arr[i]["type"] === "image" ? image['image'] = arr[i]["url"] : video['video'] = arr[i]["url"];
     }
+
     return [image, video];
   }
 
   render () {
     const { product, product_url } = this.state;
-    console.log(product_url[0]?.image);
-    console.log(product_url[1]?.video);
 
     return (
       <div className="ProductDetail">
@@ -63,8 +60,6 @@ class ProductDetail extends Component {
               <Link to='/'>Wesop</Link>
             </div>
             <div className="imgBox">
-              {/* <img alt="testing" src="https://www.aesop.com/medias/Aesop-Skin-Remove-60mL-large.png?context=bWFzdGVyfGltYWdlc3wzNTg0NDJ8aW1hZ2UvcG5nfGltYWdlcy9oMTIvaDQxLzg4MDUwNzIxNDIzNjYucG5nfDM2ODViMzA0ZWU1NGU0MzBkOGZjMGZlNjlhMTU2YjE2ZTQ0ZTY2NjY5MjBhZDRiN2NhNDU4NzgyYmE2NGNkMGE"></img> */}
-              {/* <img alt={product.name} src={image_url}></img> */}
               <img alt={product.name} src={product_url[0]?.image}></img>
             </div>
           <div className="productInfo">
@@ -79,12 +74,11 @@ class ProductDetail extends Component {
         </div>
 
         <div className="instructionBox">
-          {/* <ProductInstruction product = {product} video_url = {video_url} /> */}
           <ProductInstruction product = {product} video_url = {product_url[1]?.video} />
         </div>
 
         <div className="slider">
-          slider 섹션
+
         </div>
 
       </div>

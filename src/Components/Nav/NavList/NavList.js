@@ -24,11 +24,7 @@ class NavList extends Component {
   }
 
   componentDidMount() {
-    // this.setState({
-    //   categories : categories,
-    // })
-    fetch(CATEGORIES_API,
-     { method: 'GET'})
+    fetch(CATEGORIES_API)
      .then(res => res.json())
      .then(res => {
        this.setState({
@@ -85,14 +81,6 @@ class NavList extends Component {
     this.props.handleNavListModal();
     this.props.history.push(`/product_detail/${id}`);
   }
-
-  // goToCategoryList = (id) => {
-  //   this.props.history.push(`/categories/${id}`);
-  // }
-
-  // goToProductList = (id) => {
-  //   this.props.history.push(`/product_list/${id}`);
-  // }
 
   showAllLength = category => {
     let result = 0;
