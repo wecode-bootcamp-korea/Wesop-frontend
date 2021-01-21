@@ -10,7 +10,6 @@ class ProductListContent extends Component {
     super();
     this.state = {
         products: [],
-        //isHovering: false
         isHovering:''
     }
   }
@@ -27,7 +26,6 @@ class ProductListContent extends Component {
     }
 
   handleMouseHover = (productID) => {
-    console.log('productId', productID);
     this.setState(() => (
       { isHovering: productID})
     );
@@ -37,8 +35,12 @@ class ProductListContent extends Component {
     const { products } = this.state;
     return (
       <div className="ProductListContent">
-        <div className="ProductListContent-intro">
-          <span className="ProductListContent-intro-title">
+        <div 
+        className="ProductListContent-intro" 
+        onMouseEnter={this.handleMouseHover}
+        onMouseLeave={this.handleMouseHover}
+        >
+          <span className="ProductListContent-intro-title" >
             처음의 시작
           </span>
           <p>

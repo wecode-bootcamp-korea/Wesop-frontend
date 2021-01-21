@@ -1,3 +1,5 @@
+@import '../../../Styles/common.scss';
+
 .ProductListSubNav {
   display: flex;
   justify-content: space-between;
@@ -24,7 +26,7 @@
     }
   }
 
-  div {
+  .ProductListSubNav-filter-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +42,7 @@
     &:hover {
       cursor: pointer; 
       background-color: black; 
-      color:#fffef2;
+      color:$wesop_white;
     }
   }
 }

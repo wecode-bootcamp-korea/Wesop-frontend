@@ -1,3 +1,5 @@
+@import '../../../Styles/common.scss';
+
 .ProductListNextStep {
   display: flex;
   width: 100%;
@@ -46,7 +48,7 @@
       &:hover { 
 				cursor: pointer; 
 				background-color: black; 
-				color:#fffef2;
+				color: $wesop_white;
 			}
     }
   }
