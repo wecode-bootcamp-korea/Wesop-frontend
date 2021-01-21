@@ -20,7 +20,7 @@ class NewProduct extends Component {
           </div>
         </div>
         <div className="mainSection-newproduct-rightSide">
-          <img alt="seed_skincare_img" src="https://www.aesop.com/u1nb1km7t5q7/5Uchgf3EITLPDvmZgf3Cj2/2c648d927c44ac2c844e6e5cce10cba9/Aesop-Parsley-Seed-Performance-Campaign-2020-Hybris-Homepage-Secondary-3-Mid-Desktop-1690x1150px.jpg" />
+          <img alt="seed_skincare_img" src="https://images.unsplash.com/photo-1511405503689-8c96770ab5ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" />
         </div>
       </div>
     );
