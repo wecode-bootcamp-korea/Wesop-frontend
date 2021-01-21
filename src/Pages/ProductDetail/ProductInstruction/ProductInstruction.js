@@ -10,7 +10,10 @@ class ProductInstruction extends Component {
       <>
         <div className="imgWrapper">
           {/* <img alt="testing" src="https://www.aesop.com/u1nb1km7t5q7/7KFtsfQPvlTOq50iOgsVYQ/9865d72cfac7f1c06a5a57aa07abb5fd/Aesop-Skin-Remove-Hybris-Secondary-Texture-50-50-Desktop-1440x1500px.jpg"></img> */}
-          <img alt="" src={video_url}></img>
+          <video style={{ height : '100%', width : '100%' }} src={video_url} loop autoPlay></video>
+          {/* <video loop autoPlay muted>
+            <source src={video_url} type="video"/>
+          </video> */}
         </div>
         <div className="instruction">
           <div className="instructionWrapper">

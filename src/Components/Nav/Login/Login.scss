@@ -1,20 +1,63 @@
-@import '../../../Styles/common.scss';
-
+@import "../../../Styles/common.scss";
 
 .Login {
-
   .LoginModal {
     display: flex;
-    // align-items: center;
     flex-direction: column;
     justify-content: space-around;
     border: 1px solid black;
-    background-color: $wesop_white;
+    background-color: $wesop-white;
     color: black;
-    padding: 50px;
-    width: 400px;
-    height: 400px;
+    padding: 50px 40px;
+    width: 500px;
+    min-height: 380px;
 
-    
+    .returnButton {
+      position: fixed;
+      top: 40px;
+      left: 40px;
+      cursor: default;
+    }
+
+    .closeButton {
+      position: fixed;
+      top: 40px;
+      right: 50px;
+      cursor: default;
+      font-size: 20px;
+    }
+
+    .LoginTitle {
+      font-size: 1.6rem;
+      padding: 40px 0px 20px;
+      color: #252525;
+    }
+
+    .LoginSubtitle {
+      font-size: 1rem;
+      padding-bottom: 50px;
+      color: #666666;
+    }
+
+    input {
+      font-size: 1.5rem;
+      background-color: $wesop_white;
+      color: #666666;
+      line-height: 1;
+      border-style: solid;
+      border-width: 0 0 1px;
+      width: 100%;
+    }
+
+    button {
+      height: 45px;
+      width: 100%;
+      background-color: #333333;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        background-color: black;
+      }
+    }
   }
 }

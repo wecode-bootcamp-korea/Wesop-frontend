@@ -7,7 +7,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
-class SeedSlider extends Component {
+class Slider extends Component {
   render() {
     const { products, goToDetail } = this.props;
     
@@ -40,4 +40,4 @@ class SeedSlider extends Component {
   }
 }
 
-export default SeedSlider;
+export default Slider;

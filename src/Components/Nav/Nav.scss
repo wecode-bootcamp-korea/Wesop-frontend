@@ -1,14 +1,14 @@
 .Nav {
+  position: fixed;
+  z-index: 2;
   display: flex;
   width: 100%;
   height: 75px;
   justify-content: space-between;
   align-items: center;
-  position: relative, sticky, -webkit-sticky;
   background-color: black ;
   color: white;
   
-
   .NavLeftWrap, .NavRightWrap {
     .NavLeftBtns, .NavRightBtns {
       display: flex;
@@ -16,7 +16,6 @@
       &:first-child {
         margin-left: 40px;
       }
-
       span {
         margin-right: 40px;
         padding-bottom: 3px;
@@ -42,7 +41,6 @@
   .hide {
     display: none;
   }
-
   .showNavList {
     z-index: 1;
     position: absolute;
