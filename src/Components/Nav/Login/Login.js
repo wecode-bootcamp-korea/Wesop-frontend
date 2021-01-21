@@ -3,9 +3,6 @@ import "./Login.scss";
 import SignInForm from "./SignInForm/SignInForm";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import DefaultForm from "./DefaultForm/DefaultForm";
-
-
-
 class Login extends Component {
   constructor() {
     super();
@@ -19,23 +16,21 @@ class Login extends Component {
       currentView: value,
     })
   };
-
-
+  
  render() {
   const nextMapper = {
-    signIn: <SignInForm />,
-    signUp: <SignUpForm />,
-    default: <DefaultForm handleCurrentView={this.handleCurrentView} />,
+    signIn: <SignInForm handleLoginModal={this.props.handleLoginModal}/>,
+    signUp: <SignUpForm handleLoginModal={this.props.handleLoginModal}/>,
+    default: <DefaultForm handleLoginModal={this.props.handleLoginModal} handleCurrentView2={this.handleCurrentView} />,
   }
 
-    return (
-      <div className="Login">
-        <div className="LoginModal">
-          {nextMapper[this.state.currentView]}
-        
-        </div>
+  return (
+    <div className="Login">
+      <div className="LoginModal">
+        {nextMapper[this.state.currentView]}
       </div>
-    );
+    </div>
+  );
   }
 }
 

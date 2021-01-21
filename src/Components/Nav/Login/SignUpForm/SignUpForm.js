@@ -8,24 +8,52 @@ class SignUpForm extends Component {
     this.state = {
       email: '',
       password: '',
-      checkPassword: '',
+      rePassword: '',
       name: '',
+      isEmailValid: true,
+      isPwValid: true,
+      isRePwValid: true,
+      isNameValid: true,
     }
   }
-
-  // 꼭 활용 잘 해야 할 함수!
-  inputChange = (e) => {
+  // 사용자가 입력한 id값 저장 
+  handleInputChange = (e) => {
     const {name, value} = e.target;
     this.setState({
       [name]: value,
     })
   }
-  
-  
 
+  // handleJoinButton = () => {
+  //   fetch("백엔드주소", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.email,
+  //       password: this.state.passwrod,
+  //     }),    
+  //   })
+  //   .then((response) => response.json())
+  //   .then((response) => {})
+  // }
+
+  // 이메일, 패스워드 체크패스워드, 이름 유효성 확인
+  checkInputValid = () => {
+    const {email, password, rePassword, name} = this.state;
+    const isEmailValid = email.includes("@") && email.length > 5;
+    const isPwValid = password.length > 5;
+    const isRePwValid = password 
+    const isNameValid = name.length>2;
+
+    this.setState ({
+      isEmailValid, isPwValid, isRePwValid, isNameValid}
+      , () => this.handleJoinButton
+    )
+  }
+  
+  
   render () {
     return (
-      <>
+      <div className= "Login">
         <div className="head">
           <span className="returnButton">Back</span>
           <span className="closeButton" onClick={this.props.handleLoginModal}>X</span>
@@ -38,41 +66,48 @@ class SignUpForm extends Component {
           <input 
             type="email" 
             placeholder="이메일 주소" 
-            onChange={this.inputChange} 
+            onChange={this.handleInputChange} 
             name="email"
           />
-          <div class="emailErrorMessage"></div>
-        </div>
-        <div class="LoginPassword">
+          <div className={this.state.isEmailValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요. </div>
+        </div> 
+        <div className="LoginPassword">
           <input 
           type="password" 
           placeholder="패스워드" 
-          onChange={this.inputChange} 
+          onChange={this.handleInputChange} 
           name="password"
           />
+          <div className={this.state.isPwValid ? 'inactive' : 'active'}>유효한 비밀번호를 입력해주세요. </div>
           <input 
           type="password" 
           placeholder="패스워드 확인" 
           onChange={this.inputChange} 
-          name="checkPassword"
+          name="rePassword"
           />
+          <div className={this.state.isRePwValid ? 'inactive' : 'active'}>이전에 사용했던 패스워드를 입력해주세요. </div>
         </div>
-        <div className="nameWrap">
+        <div className="LoginName">
           <input 
           type="text" 
           placeholder="이름"
           onChange={this.inputChange} 
           name="name"
           />
+          <div className={this.state.isNameValid ? 'inactive' : 'active' }>이름을 입력하세요.</div>
         </div>
         <div className="BtnWrap">
-          <button className="continueBt" type="button" onClick={this.handleContinueButton}>계속</button>
+          <button className="continueBt" 
+          type="button" 
+          onClick={this.checkInputValid}
+          >
+          등록
+          </button>
         </div>         
-     </>
+      </div>
     )
   }
 }
-
 
 
 export default SignUpForm;

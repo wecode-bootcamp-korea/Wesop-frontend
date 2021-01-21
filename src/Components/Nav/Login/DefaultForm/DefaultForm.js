@@ -6,52 +6,51 @@ class DefaultForm extends Component {
     super();
     this.state = {
       email: '',
-      isValid: false,
-      isError: false,
+      isValid: true,
     }
   }
 
-  // 사용자가 입력한 id값 저장 >>> state
-  handleEmailValue = (e) => {
+  // 사용자가 입력한 id값 저장 
+  handleEmailChange = (e) => {
     this.setState({
       email: e.target.value,
     });
   };
-  
-  handleContinueButton = () => {   
-    fetch("http://10.58.5.188:8000/user/check", {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.email,
+
+  handleContinueButton = () => {
+    // if(!this.state.isValid) {
+    //   alert('id, pw 확인 바랍니다');
+    //   return;
+    // } else {
+      if(this.state.isValid) {
+       fetch("http://10.58.4.30:8000/user/check", {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.email,
+        })
       })
-    })
-    .then((response) => response.json())
-    .then((response) => {this.props.handleCurrentView(response.message); 
-    })  
+      .then((response) => response.json())
+      .then((response) => {this.props.handleCurrentView2(response.message);}) 
     }
-  
-  checkEmailState = () => {
+  }
+
+ // 이메일 유효성 확인
+  checkEmailValid= () => {
     const { email } = this.state;
-    const isValid = (email.includes("@") && email.length > 5);
+    const emailValid = email.includes("@") && email.length > 5;
+    console.log("emailValid >>> ", emailValid)
+    
     this.setState ({
-      isValid
-    });
-  //   // if (this.state.isvalid === false) {
-  //   //   this.setState({
-  //   //     isError: true
-  //   //   })   
-  //   }
-  //   // this.state.isValid && this.handleContinueButton();
-   }
-
-
-
+      isValid: emailValid 
+     }, () => this.handleContinueButton()
+    )
+  }
 
   render() {
     return (
-      <>
+      <div className= "Login">
         <div className="head">
-            <span className="closeButton" onClick={this.handleButton}>
+            <span className="closeButton" onClick={this.props.handleLoginModal}>
               X
             </span>
           </div>
@@ -63,23 +62,24 @@ class DefaultForm extends Component {
             <input
               type="email"
               placeholder="이메일 주소"
-              onChange={this.handleEmailValue}
+              onChange={this.handleEmailChange}
             />
-            <div className={this.state.isError ?  'active' : 'inactive'}>유효한 이메일을 입력해주세요.</div>
-            
+            <div className={this.state.isValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요.</div>            
           </div>
           <div className="BtnWrap">
             <button
               className="continueBt"
               type="button"
-              onClick={this.checkEmailState}
-              >
+              onClick={this.checkEmailValid}
+              // onClick={this.state.email.length && this.checkEmailValid}
+            >
               계속
             </button>
           </div>
-      </>
+      </div>
     )
   }
+  
 }
 
 export default DefaultForm;

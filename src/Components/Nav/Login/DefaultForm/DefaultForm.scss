@@ -1,11 +1,11 @@
-.LoginEmail .inactive {
-  display: none
-  
-}
+.Login {
+  .LoginEmail .inactive {
+    opacity: 0;
+  }
 
-
-.LoginEmail .active {
-  margin: 5px 0 20px;
-  color: red;
-  font-size: 14px;
+  .LoginEmail .active {
+    margin: 5px 0 20px;
+    color: #b48484;
+    font-size: 13px;
+  }
 }
