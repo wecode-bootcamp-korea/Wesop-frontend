@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { PRODUCT_API } from '../../../config';
+//import { PRODUCT_API } from '../../../config';
 import './ProductListContent.scss';
 
-const IMAGE_DIVIDER_REGEXP = /::/;
 const NUMBER_FORMAT_REGEXP = /\B(?=(\d{3})+(?!\d))/g;
 
 class ProductListContent extends Component {
@@ -15,11 +14,11 @@ class ProductListContent extends Component {
   }
   
   componentDidMount = () => {
-    fetch( PRODUCT_API )
+    fetch('http://10.58.7.216:8000/products/category')
       .then(res => res.json())
-      .then(res => {
+      .then(data => {
         this.setState({
-          products: res.products
+          products: data.categories[0].subcategories[0].productList
           })
         } 
       )
@@ -34,12 +33,16 @@ class ProductListContent extends Component {
   render () {
     const { products } = this.state;
     return (
-      <div className="ProductListContent">
-        <div 
-        className="ProductListContent-intro" 
+      <div 
+        className="ProductListContent"
         onMouseEnter={this.handleMouseHover}
         onMouseLeave={this.handleMouseHover}
         >
+        <div 
+          className="ProductListContent-intro" 
+          onMouseEnter={this.handleMouseHover}
+          onMouseLeave={this.handleMouseHover}
+          >
           <span className="ProductListContent-intro-title" >
             처음의 시작
           </span>
@@ -49,8 +52,6 @@ class ProductListContent extends Component {
         </div>
         {products &&
         products.map(product => {
-          const [ image ] = Object.values(product.media);
-          const { index } = image.match(IMAGE_DIVIDER_REGEXP);
           const productID = product.id;
           return (
             <div 
@@ -59,7 +60,7 @@ class ProductListContent extends Component {
               className="ProductListContent-item">
             <div className="ProductListContent-detail">
               <div className="ProductListContent-detail-image">
-                <img width="400px"src={image.slice(0, index)} alt={product.name} />
+                <img width="400px"src={product.media[0].url} alt={product.name} />
               </div>
               <div className="ProductListContent-detail-info">
                 <div className="ProductListContent-detail-info-name">
@@ -74,11 +75,11 @@ class ProductListContent extends Component {
               <div className="ProductListContent-detail-type">
                 <div className="ProductListContent-detail-type-skintype">
                   <span>피부 타입</span>
-                  <span>{Object.values(product.skin_types).join(', ')}</span>
+                  <span>{(product.skin_types).join(', ')}</span>
                 </div>
                 <div className="ProductListContent-detail-type-texture">
                   <span>사용감</span>
-                  <span>{Object.values(product.feels).join(', ')}</span>
+                  <span>{(product.feels).join(', ')}</span>
                 </div>
               </div>
             </div>
