@@ -64,7 +64,9 @@ class DefaultForm extends Component {
               placeholder="이메일 주소"
               onChange={this.handleEmailChange}
             />
-            <div className={this.state.isValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요.</div>            
+            <div className="warningWrap">
+            <span className={this.state.isValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요.</span>
+            </div>            
           </div>
           <div className="BtnWrap">
             <button

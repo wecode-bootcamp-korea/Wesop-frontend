@@ -27,7 +27,8 @@ class Login extends Component {
   return (
     <div className="Login">
       <div className="LoginModal">
-        {nextMapper[this.state.currentView]}
+        {/* {nextMapper[this.state.currentView]} */}
+        <SignInForm />
       </div>
     </div>
   );

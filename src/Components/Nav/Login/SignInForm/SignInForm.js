@@ -20,17 +20,17 @@ class SignInForm extends Component {
     })
   }
 
-  // handleLoginButton = () => {
-  //   fetch("백엔드주소", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: this.state.email,
-  //       password: this.state.passwrod,
-  //     }),    
-  //   })
-  //   .then((response) => response.json())
-  //   .then((response) => {})
-  // }
+  handleLoginButton = () => {
+    fetch("백엔드주소", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.passwrod,
+      }),    
+    })
+    .then((response) => response.json())
+    .then((response) => {})
+  }
 
 
   // 이메일,패스워드 유효성 확인
@@ -70,7 +70,9 @@ class SignInForm extends Component {
             onChange={this.handleInputChange} 
             name="email"
             />
-          <div class={this.state.isEmailValid ? "inactive" : "active"} >유효한 이메일을 입력해주세요.</div>
+          <div className="warningWrap">
+            <span class={this.state.isEmailValid ? "inactive" : "active"} >유효한 이메일을 입력해주세요.</span>
+          </div>
         </div>
         <div className="LoginPassword">
           <input 
@@ -79,7 +81,9 @@ class SignInForm extends Component {
             onChange={this.handleInputChange} 
             name="password"
           />
-          <div className={this.state.isPasswordValid ? "inactive" : "active"}>유효한 패스워드가 필요합니다.</div>
+          <div className="warningWrap">
+            <span className={this.state.isPasswordValid ? "inactive" : "active"}>유효한 패스워드가 필요합니다.</span>
+          </div>
           <p className="resetPassword" >패스워드 재설정하기</p>
         </div>
         <div className="BtnWrap">
