@@ -7,7 +7,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
-class SeedSlider extends Component {
+class Slider extends Component {
   render() {
     const { products } = this.props;
     
@@ -22,7 +22,7 @@ class SeedSlider extends Component {
         {products.length && 
         products.map ( product => {
           return (
-            <SwiperSlide key={product.key} >
+            <SwiperSlide key={product.id} >
             {<Products
             key={product.id}
             description={product.description}
@@ -39,4 +39,4 @@ class SeedSlider extends Component {
   }
 }
 
-export default SeedSlider;
+export default Slider;

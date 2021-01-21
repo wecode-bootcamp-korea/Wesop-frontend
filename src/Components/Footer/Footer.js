@@ -90,9 +90,9 @@ class Footer extends Component {
         <div className="Footer-main">
           <div className="Footer-main-subscription">
             <span className="Footer-main-subscription-title">구독하기</span>
-            <div class="form">
+            <div className="form">
               <input type="text" name="name" autoComplete="off" required/>
-              <label for="name" className="label-name">
+              <label htmlFor="name" className="label-name">
                 <span className="Footer-main-subscription-input content-name">이메일 주소</span>
               </label>
             </div>
@@ -125,7 +125,7 @@ class Footer extends Component {
                 {
                   FOOTER_SOCIAL.map((linkName) => {
                   return(
-                    <li key={linkName.id}><a href={linkName.url} target="_blank">{linkName.content}</a><i class="fas fa-location-arrow fa-xs"></i></li>
+                    <li key={linkName.id}><a href={linkName.url} target="_blank">{linkName.content}</a><i className="fas fa-location-arrow fa-xs"></i></li>
                     )
                   })
                 }

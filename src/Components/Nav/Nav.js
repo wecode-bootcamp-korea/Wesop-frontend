@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Login from './Login/Login';
-import NavList from './NavList/NavList'; // 성현님 컴포넌트
+import NavList from './NavList/NavList';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -9,7 +9,6 @@ class Nav extends Component {
     this.state= {
       isLoginShown: false,
       isNavListShown: false,
-      // isCategoryBoxVisible: false,
     }
   }
 
@@ -50,7 +49,7 @@ class Nav extends Component {
             <Login handleLoginModal={this.handleLoginModal}/>
         </div>
         <div className={isNavListShown ? 'showNavList' : 'hideNavList'}>
-            <NavList isCategoryBoxVisible={isCategoryBoxVisible} /> 
+            <NavList isCategoryBoxVisible={isCategoryBoxVisible} handleNavListModal={this.handleNavListModal} /> 
         </div>
       </nav>
     );

@@ -27,7 +27,7 @@ class Location extends Component {
         <div className="mainSection-location-rightSide">
           <Swiper
             autoplay={true} 
-            autoplayTimeout={1000}
+            autoplaytimeout={1000}
             slidesPerView={1}
             navigation
             >
