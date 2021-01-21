@@ -25,9 +25,6 @@ class Nav extends Component {
     })
   }
 
-  
-
-
   render () {
     const { isLoginShown, isNavListShown, isCategoryBoxVisible } = this.state;
     return (
@@ -40,11 +37,8 @@ class Nav extends Component {
             <span>검색</span>
           </ul>
         </div>
-
         <div>
-
         </div>
-
         <div className='NavRightWrap'>
           <ul className='NavRightBtns'>
             <span onClick={this.handleLoginModal}>로그인</span>
@@ -53,7 +47,7 @@ class Nav extends Component {
          </div>
          
         <div className={isLoginShown ?'show' : 'hide'}>
-            <Login />
+            <Login handleLoginModal={this.handleLoginModal}/>
         </div>
         <div className={isNavListShown ? 'showNavList' : 'hideNavList'}>
             <NavList isCategoryBoxVisible={isCategoryBoxVisible} /> 

@@ -8,7 +8,6 @@
   background-color: black ;
   color: white;
   
-
   .NavLeftWrap, .NavRightWrap {
     .NavLeftBtns, .NavRightBtns {
       display: flex;
@@ -16,7 +15,6 @@
       &:first-child {
         margin-left: 40px;
       }
-
       span {
         margin-right: 40px;
         padding-bottom: 3px;
@@ -42,7 +40,6 @@
   .hide {
     display: none;
   }
-
   .showNavList {
     z-index: 1;
     position: absolute;
