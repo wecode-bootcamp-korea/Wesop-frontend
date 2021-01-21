@@ -16,7 +16,7 @@ class SignUpForm extends Component {
       isNameValid: true,
     }
   }
-  // 사용자가 입력한 id값 저장 
+ 
   handleInputChange = (e) => {
     const {name, value} = e.target;
     this.setState({
@@ -24,19 +24,19 @@ class SignUpForm extends Component {
     })
   }
 
-  // handleJoinButton = () => {
-  //   fetch("백엔드주소", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: this.state.email,
-  //       password: this.state.passwrod,
-  //     }),    
-  //   })
-  //   .then((response) => response.json())
-  //   .then((response) => {})
-  // }
+  handleJoinButton = () => {
+    fetch("백엔드주소", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.passwrod,
+      }),    
+    })
+    .then((response) => response.json())
+    .then((response) => {})
+  }
 
-  // 이메일, 패스워드 체크패스워드, 이름 유효성 확인
+
   checkInputValid = () => {
     const {email, password, rePassword, name} = this.state;
     const isEmailValid = email.includes("@") && email.length > 5;
@@ -52,6 +52,7 @@ class SignUpForm extends Component {
   
   
   render () {
+    const { isEmailValid, isPwValid, isRePwValid, isNameValid } = this.state ;
     return (
       <div className= "Login">
         <div className="head">
@@ -70,7 +71,7 @@ class SignUpForm extends Component {
             name="email"
           />
           <div className="warningWrap">
-            <span className={this.state.isEmailValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요. </span>
+            <span className={isEmailValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요. </span>
           </div>
         </div> 
         <div className="LoginPassword">
@@ -81,7 +82,7 @@ class SignUpForm extends Component {
           name="password"
           />
           <div className="warningWrap">
-            <span className={this.state.isPwValid ? 'inactive' : 'active'}>유효한 비밀번호를 입력해주세요. </span>
+            <span className={isPwValid ? 'inactive' : 'active'}>유효한 비밀번호를 입력해주세요. </span>
           </div>
           <input 
           type="password" 
@@ -90,7 +91,7 @@ class SignUpForm extends Component {
           name="rePassword"
           />
           <div className="warningWrap">
-            <span className={this.state.isRePwValid ? 'inactive' : 'active'}>이전에 사용했던 패스워드를 입력해주세요. </span>
+            <span className={isRePwValid ? 'inactive' : 'active'}>이전에 사용했던 패스워드를 입력해주세요. </span>
           </div>
         </div>
         <div className="LoginName">
@@ -101,7 +102,7 @@ class SignUpForm extends Component {
           name="name"
           />
           <div className="warningWrap">
-            <span className={this.state.isNameValid ? 'inactive' : 'active' }>이름을 입력하세요.</span>
+            <span className={isNameValid ? 'inactive' : 'active' }>이름을 입력하세요.</span>
           </div>
         </div>
         <div className="BtnWrap">

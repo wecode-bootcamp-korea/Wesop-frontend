@@ -18,10 +18,6 @@ class DefaultForm extends Component {
   };
 
   handleContinueButton = () => {
-    // if(!this.state.isValid) {
-    //   alert('id, pw 확인 바랍니다');
-    //   return;
-    // } else {
       if(this.state.isValid) {
        fetch("http://10.58.4.30:8000/user/check", {
         method: "POST",
@@ -30,15 +26,14 @@ class DefaultForm extends Component {
         })
       })
       .then((response) => response.json())
-      .then((response) => {this.props.handleCurrentView2(response.message);}) 
+      .then((response) => {this.props.handleCurrentView(response.message);}) 
     }
   }
 
- // 이메일 유효성 확인
+
   checkEmailValid= () => {
     const { email } = this.state;
     const emailValid = email.includes("@") && email.length > 5;
-    console.log("emailValid >>> ", emailValid)
     
     this.setState ({
       isValid: emailValid 
@@ -47,6 +42,8 @@ class DefaultForm extends Component {
   }
 
   render() {
+    const {isValid} = this.state;
+
     return (
       <div className= "Login">
         <div className="head">
@@ -65,7 +62,7 @@ class DefaultForm extends Component {
               onChange={this.handleEmailChange}
             />
             <div className="warningWrap">
-            <span className={this.state.isValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요.</span>
+            <span className={isValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요.</span>
             </div>            
           </div>
           <div className="BtnWrap">
@@ -73,7 +70,6 @@ class DefaultForm extends Component {
               className="continueBt"
               type="button"
               onClick={this.checkEmailValid}
-              // onClick={this.state.email.length && this.checkEmailValid}
             >
               계속
             </button>
@@ -81,7 +77,6 @@ class DefaultForm extends Component {
       </div>
     )
   }
-  
 }
 
 export default DefaultForm;

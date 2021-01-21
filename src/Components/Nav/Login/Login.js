@@ -18,17 +18,17 @@ class Login extends Component {
   };
   
  render() {
+  const {handleLoginModal} = this.props
   const nextMapper = {
-    signIn: <SignInForm handleLoginModal={this.props.handleLoginModal}/>,
-    signUp: <SignUpForm handleLoginModal={this.props.handleLoginModal}/>,
-    default: <DefaultForm handleLoginModal={this.props.handleLoginModal} handleCurrentView2={this.handleCurrentView} />,
+    signIn: <SignInForm handleLoginModal={handleLoginModal}/>,
+    signUp: <SignUpForm handleLoginModal={handleLoginModal}/>,
+    default: <DefaultForm handleLoginModal={handleLoginModal} handleCurrentView={this.handleCurrentView} />,
   }
 
   return (
     <div className="Login">
       <div className="LoginModal">
-        {/* {nextMapper[this.state.currentView]} */}
-        <SignInForm />
+        {nextMapper[this.state.currentView]}
       </div>
     </div>
   );
