@@ -6,7 +6,7 @@ class ProductListNextStep extends Component {
     return (
       <div className="ProductListNextStep">
         <div className="ProductListNextStep-image">
-          <img src="https://www.aesop.com/medias/Aesop-Skin-Purifying-Facial-Exfoliant-Paste-75mL-large.png?context=bWFzdGVyfGltYWdlc3w1MjE5NDl8aW1hZ2UvcG5nfGltYWdlcy9oOWMvaGZhLzg3OTc0MzkxMzE2NzgucG5nfGIzZTRkMWFmZTIzYjYzYjdkZjU3OTAwNmFkNDMwYzk3NmY1N2NmMWE1YWJjYzMzNDA2NjczMTcxOGVkZGZkYTI" alt="각질제거" />
+          <img src="https://images.unsplash.com/photo-1564020426549-fabfb8c467ad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="각질제거" />
         </div>
         <div className="ProductListNextStep-move">
           <span>다음 단계</span>

@@ -15,7 +15,7 @@ class ProductListHowTo extends Component {
 					</div>
 				</div>
 				<div className="ProductListHowTo-picture">
-					<img src="https://www.aesop.com/u1nb1km7t5q7/1iiKSDIrkiig0T034BqQlI/bdb5109bd1f301407bdf53b9758800ab/Aesop-Generic-Images-Skin-Care-Workshop-1-Mid-Desktop-1690x950px.jpg" alt="intro" />
+					<img src="https://images.unsplash.com/photo-1603967721238-fab6c502e8f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="intro" />
 				</div>
       </div>
     )

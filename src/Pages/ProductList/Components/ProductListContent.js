@@ -75,7 +75,7 @@ class ProductListContent extends Component {
               <div className="ProductListContent-detail-type">
                 <div className="ProductListContent-detail-type-skintype">
                   <span>피부 타입</span>
-                  <span>{(product.skin_types).join(', ')}</span>
+                  <span>{(product.skin_types).join(', ')} 피부</span>
                 </div>
                 <div className="ProductListContent-detail-type-texture">
                   <span>사용감</span>
