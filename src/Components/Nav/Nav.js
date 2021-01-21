@@ -9,6 +9,13 @@ class Nav extends Component {
     this.state= {
       isLoginShown: false,
       isNavListShown: false,
+
+      categoryIdx: 0,
+      subCategoryIdx: 0,
+      showSubLength: false,
+      showProductLength: false,
+      isSubCategoryBoxVisible: 0,
+      isProductBoxVisible: 0,
     }
   }
 
@@ -20,12 +27,70 @@ class Nav extends Component {
 
   handleNavListModal = () => {
     this.setState({
+      isSubCategoryBoxVisible: 0,
+      isProductBoxVisible: 0,
       isNavListShown: !this.state.isNavListShown,
     })
   }
 
+  toggleSubcategoryBox = (idx) => {
+    this.setState({
+      isSubCategoryBoxVisible: 1,
+      categoryIdx: idx,
+      showSubLength: idx,
+    })
+    this.state.isProductBoxVisible !== 0 && this.setState({isProductBoxVisible: 2})
+  };
+
+  toggleProductBox = (idx) => {
+    this.setState({
+      isProductBoxVisible: 1,
+      subCategoryIdx: idx,
+      showProductLength: idx,
+    })
+  };
+
+  removeAllBox = () => {
+    this.setState({
+      isSubCategoryBoxVisible: 2,
+      isProductBoxVisible: 2,
+      showSubLength: false,
+      showProductLength: false,
+    })
+  }
+
+  removeProductBox = () => {
+    this.setState({
+      isProductBoxVisible: 2,
+      showProductLength: false,
+    })
+  }
+
+  toggleShowAllBox = () => {
+    this.setState({
+      isProductBoxVisible: 2,
+      showProductLength: false,
+    })
+  }
+
+  goToProductDetail = (id) => {
+    this.props.handleNavListModal();
+    this.props.history.push(`/product_detail/${id}`);
+  }
+
+  showAllLength = category => {
+    let result = 0;
+    for (let i = 0; i < category.subcategories.length; i++) {
+      result += (category.subcategories[i].productList.length);
+    }
+    return result;
+  }
+
+  
+
   render () {
     const { isLoginShown, isNavListShown, isCategoryBoxVisible } = this.state;
+    const {handleNavListModal, toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength} = this;
     return (
       <nav className='Nav'>
         <div className="NavLeftWrap">
@@ -49,7 +114,22 @@ class Nav extends Component {
             <Login handleLoginModal={this.handleLoginModal}/>
         </div>
         <div className={isNavListShown ? 'showNavList' : 'hideNavList'}>
-            <NavList isCategoryBoxVisible={isCategoryBoxVisible} handleNavListModal={this.handleNavListModal} /> 
+            <NavList
+            isCategoryBoxVisible={isCategoryBoxVisible}
+            handleNavListModal={handleNavListModal}
+            toggleSubcategoryBox={toggleSubcategoryBox}
+            toggleProductBox={toggleProductBox}
+            removeAllBox={removeAllBox}
+            removeProductBox={removeProductBox}
+            toggleShowAllBox={toggleShowAllBox}
+            showAllLength={showAllLength}
+            categoryIdx={this.state.categoryIdx}
+            subCategoryIdx={this.state.subCategoryIdx}
+            showSubLength={this.state.showSubLength}
+            showProductLength={this.state.showProductLength}
+            isSubCategoryBoxVisible={this.state.isSubCategoryBoxVisible}
+            isProductBoxVisible={this.state.isProductBoxVisible}
+            /> 
         </div>
       </nav>
     );

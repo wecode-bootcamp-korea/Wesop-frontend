@@ -53,6 +53,10 @@
         font-size: 14px;
         margin-left: 10px;
       }
+
+      .hideNumber {
+        display: none;
+      }
     }
 
     .categories {
@@ -68,6 +72,26 @@
         }
       }
     }
+
+    .showUp{
+      animation: 0.7s showUp forwards;
+    }
+
+    .second{
+      z-index: 3;
+    }
+
+    .third{
+      z-index: 5;
+    }
+
+    .categoriesWrapper{
+      z-index: 4;
+    }
+
+    .hide {
+      display: none;
+    }
   }
 
   .lastChild {
@@ -75,15 +99,28 @@
     border: none;
   }
 
-
-
   .hidden {
-    display: none;
+    animation: 0.7s showOut forwards;
+    z-index: -1;
   }
 
 
 }
 
-.hidden {
-  display: none;
+@keyframes showUp {
+  0%{
+  transform: translate(-100%, 0);
+  }
+  100%{
+  transform: translate(0%, 0);
+  }
+}
+
+@keyframes showOut {
+  0%{
+    transform: translate(0%, 0);
+  }
+  100%{
+      transform: translate(-67vw, 0);
+  }
 }
