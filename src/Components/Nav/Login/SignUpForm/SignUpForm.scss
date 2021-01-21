@@ -1,0 +1,14 @@
+.Login {
+  .LoginPassword,
+  .LoginName {
+    .active {
+      margin: 10px 0 20px;
+      color: #b48484;
+      font-size: 13px;
+    }
+
+    .inactive {
+      opacity: 0;
+    }
+  }
+}

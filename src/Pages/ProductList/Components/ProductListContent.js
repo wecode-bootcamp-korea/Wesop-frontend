@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-//import { PRODUCT_API } from '../../../config';
+import { Link, withRouter } from 'react-router-dom';
+import { PRODUCT_API } from '../../../config';
 import './ProductListContent.scss';
 
 const NUMBER_FORMAT_REGEXP = /\B(?=(\d{3})+(?!\d))/g;
@@ -29,6 +30,10 @@ class ProductListContent extends Component {
       { isHovering: productID})
     );
   }
+
+  goToProductDetail = (id) => {
+    this.props.history.push(`/product_detail/${id}`)
+  }
   
   render () {
     const { products } = this.state;
@@ -54,10 +59,11 @@ class ProductListContent extends Component {
         products.map(product => {
           const productID = product.id;
           return (
-            <div 
+          <div 
               onMouseEnter={() => this.handleMouseHover(productID)}
               onMouseLeave={() => this.handleMouseHover(productID)}
-              className="ProductListContent-item">
+              className="ProductListContent-item"
+              >
             <div className="ProductListContent-detail">
               <div className="ProductListContent-detail-image">
                 <img width="400px"src={product.media[0].url} alt={product.name} />
@@ -66,10 +72,15 @@ class ProductListContent extends Component {
                 <div className="ProductListContent-detail-info-name">
                   <span>{product.name}</span>
                 </div>
-                <div className="ProductListContent-detail-info-price">
-                  <span>{product.size}</span>
-                  <span>/</span>
-                  <span>₩{Math.floor(product.price).toString().replace(NUMBER_FORMAT_REGEXP, ",")}</span>
+                <div className="ProductListContent-detail-info">
+                  <div className="ProductListContent-detail-info-name">
+                    <span>{product.name}</span>
+                  </div>
+                  <div className="ProductListContent-detail-info-price">
+                    <span>{product.size}</span>
+                    <span>/</span>
+                    <span>₩{Math.floor(product.price).toString().replace(NUMBER_FORMAT_REGEXP, ",")}</span>
+                  </div>
                 </div>
               </div>
               <div className="ProductListContent-detail-type">
@@ -95,4 +106,4 @@ class ProductListContent extends Component {
   }
 }
 
-export default ProductListContent;
+export default withRouter(ProductListContent);

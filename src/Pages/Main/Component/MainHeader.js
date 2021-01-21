@@ -16,7 +16,7 @@ class MainHeader extends Component {
               <p>세 가지 아로마 캔들이 이솝의 홈 레인지를 통해 새롭게 선보입니다. 고대 천문학자의 이름을 붙인 캔들은 고유한 매혹적인 향기를 전합니다.</p>
               <div className="mainSection-header-leftSide-innerWrapper-content-button">
                 <span>레인지 살펴보기</span>
-                <i class="fas fa-arrow-right"></i>
+                <i className="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
