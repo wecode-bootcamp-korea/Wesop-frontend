@@ -132,7 +132,7 @@ class Footer extends Component {
               </ul>
             </div>
             <div className="Footer-main-link-compliance">
-              <p>상호: 이솝코리아 유한회사 | 주소: 서울특별시 강남구 선릉로 162길 3 이솝코리아 3층 | 대표자: 마이클안토니오키프 | 대표전화: 1800-1987 | 대표 이메일: aesop@aesop.com | 호스팅 사업자: SAP Hybris | 사업자 등록 번호: 220-88-56014 | 통신판매업 신고번호: 2014-서울강남-02300</p>
+              <p>상호: 위솝코리아 | 주소: 서울특별시 강남구 위솝코리아 | 대표전화: 0000-0000 | 대표 이메일: Wesop@Wesop.com | 호스팅 사업자: Wesop  </p>
             </div>
           </div>
         </div>
