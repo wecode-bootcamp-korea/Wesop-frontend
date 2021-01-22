@@ -24,6 +24,13 @@ class SignUpForm extends Component {
     })
   }
 
+  componentDidMount () {
+    this.setState ({
+      email: this.props.emailData
+    })
+
+  }
+
   handleJoinButton = () => {
     fetch("http://10.58.2.232:8000/user/signup", {
       method: "POST",
@@ -33,10 +40,11 @@ class SignUpForm extends Component {
         name: this.state.name,
       }),    
     })
-    .then((response) => response.json())
-    .then((response) => {response.message})
-
-    this.props.goToMain();
+      .then((response) => response.json())
+      .then((response) => {
+        // localStorage.setItem('token', response.token
+      this.props.handleLoginModal();
+    })
   }
 
 
@@ -44,14 +52,16 @@ class SignUpForm extends Component {
     const {email, password, rePassword, name} = this.state;
     const isEmailValid = email.includes("@") && email.length > 5;
     const isPwValid = password.length > 5;
-    const isRePwValid = password 
+    const isRePwValid = password; 
     const isNameValid = name.length>2;
 
     this.setState ({
       isEmailValid, isPwValid, isRePwValid, isNameValid}
       , () => this.handleJoinButton
-    )
-  }
+    )}
+
+
+  
   
   
   render () {
@@ -76,7 +86,7 @@ class SignUpForm extends Component {
             placeholder="이메일 주소" 
             onChange={this.handleInputChange} 
             name="email"
-            value={this.props.emaildata}
+            value={this.props.emailData}
           />
           <div className="warningWrap">
             <span className={isEmailValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요. </span>
@@ -122,9 +132,11 @@ class SignUpForm extends Component {
           </button>
         </div>         
       </div>
-    )
+     )
   }
+  
 }
+
 
 
 export default SignUpForm;

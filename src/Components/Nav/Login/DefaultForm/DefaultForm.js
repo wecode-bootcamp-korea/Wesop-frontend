@@ -28,7 +28,8 @@ class DefaultForm extends Component {
         })
       })
       .then((response) => response.json())
-      .then((response) => {this.props.handleCurrentView(response.message, this.state.email);}) 
+      .then((response) => {this.props.handleCurrentView(response.message,
+        this.state.email);}) 
     }
   }
 

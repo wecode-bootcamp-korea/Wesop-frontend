@@ -21,16 +21,20 @@ class Login extends Component {
     })
   };
 
-  goDefaultModal = () => {
-    <default />
+
+  goToDefault = () => {
+   
+    this.setState({
+      currentView: "default",
+    })
   }
     
 render() {
-  const {handleLoginModal, goToMain, goDefaultModal } = this.props
+  const {handleLoginModal } = this.props
   const nextMapper = {
-    signIn: <SignInForm handleLoginModal={handleLoginModal} emailData={this.state.email} goDefaultModal={goDefaultModal} />,
+    signIn: <SignInForm handleLoginModal={handleLoginModal} emailData={this.state.email} goToDefault={this.goToDefault} />,
     signUp: <SignUpForm handleLoginModal={handleLoginModal}
-    emailData={this.state.email} goDefaultModal={goDefaultModal} />,
+    emailData={this.state.email} goToDefault={this.goToDefault} />,
     default: <DefaultForm handleLoginModal={handleLoginModal} handleCurrentView={this.handleCurrentView} />,
   }
 
@@ -41,7 +45,6 @@ render() {
         {/* <SignUpForm /> */}
         {/* <SignInForm /> */}
         {/* <DefaultForm /> */}
-
       </div>
     </div>
   );
