@@ -1,4 +1,4 @@
-const SERVER_API = `http://10.58.7.216:8000`;
+const SERVER_API = `http://10.58.3.92:8000`;
 
 
 export const PRODUCTS_API = `${SERVER_API}/products`;

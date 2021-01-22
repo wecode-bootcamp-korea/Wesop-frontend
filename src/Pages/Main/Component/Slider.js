@@ -9,7 +9,7 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 
 class Slider extends Component {
   render() {
-    const { products } = this.props;
+    const { products, goToDetail } = this.props;
     
     SwiperCore.use([Navigation, Pagination, Scrollbar]);
 
@@ -19,15 +19,16 @@ class Slider extends Component {
           slidesPerView={4}
           navigation
           scrollbar>
-        {products.length && 
+        {products && 
         products.map ( product => {
           return (
-            <SwiperSlide key={product.id} >
+            <SwiperSlide productId={product.id} >
             {<Products
-            key={product.id}
+            goToDetail={goToDetail}
+            productId={product.id}
             description={product.description}
             name={product.name}
-            url={product.url}
+            url={product.media[0]?.url}
           />}
             </SwiperSlide>
             )

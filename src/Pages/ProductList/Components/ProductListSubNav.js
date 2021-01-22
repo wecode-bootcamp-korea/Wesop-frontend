@@ -18,7 +18,7 @@ class ProductListSubNav extends Component {
           <li>키트</li>
           <li>스킨케어 세트 추천</li>
         </ul>
-        <div className="filter-box">
+        <div className="ProductListSubNav-filter-box">
           <span>필터</span><i className="fas fa-sort-down"></i>
         </div>
       </nav>

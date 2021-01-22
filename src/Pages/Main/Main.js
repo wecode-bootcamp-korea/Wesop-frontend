@@ -1,49 +1,49 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { CATEGORIES_API } from '../../config';
 import MainHeader from './Component/MainHeader';
 import NewProduct from './Component/NewProduct';
 import Slider from './Component/Slider';
 import Location from './Component/Location';
 import Quote from './Component/Quote';
-//import Footer from '../../Components/Footer/Footer';
 import './Main.scss'
-
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
-      candleProducts : [],
-      seedProducts: []
+      products: []
     }
   }
 
   componentDidMount = () => {
-    fetch('data/MainSliderProducts.json')
+    fetch(CATEGORIES_API)
       .then(res => res.json())
       .then((data) => {
         this.setState({
-          candleProducts: data.MainCandleProducts,
-          seedProducts: data.MainSeedProducts
+          products: data.categories[0].subcategories[0].productList
           })
         } 
       )
     }
 
-  render() { 
-    const { candleProducts, seedProducts } = this.state;
+  goToDetail = (id) => {
+    this.props.history.push(`/product_detail/${id}`)
+  }
 
+  render() { 
+    const { products } = this.state;
     return (
       <div className="main">
         <MainHeader />
-        <Slider products={candleProducts}/>
-        <NewProduct /> 
-        <Slider products={seedProducts}/>       
-        <Location />
-        <Quote /> 
-        {/*<Footer />*/}
+        <Slider products={products} goToDetail={this.goToDetail}/>
+        <NewProduct />  
+        <Slider products={products} goToDetail={this.goToDetail}/>
+        <Location /> 
+        <Quote />  
       </div>
     );
   }
 }
 
-export default Main;
+export default withRouter(Main);

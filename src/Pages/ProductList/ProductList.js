@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import Nav from '../../Components/Nav/Nav';
 import ProductListHeader from './Components/ProductListHeader';
 import ProductListSubNav from './Components/ProductListSubNav';
 import ProductListContent from './Components/ProductListContent';

@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 2;
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 75px;
   justify-content: space-between;
   align-items: center;
@@ -47,9 +47,29 @@
     position: absolute;
     top: 75px;
     left: 0;
+    animation: 0.7s slideIn forwards;
   }
 
   .hideNavList {
+    animation: 0.7s slideOut forwards;
     display: none;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(0%, 0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translate(0%, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
   }
 }

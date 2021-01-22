@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { PRODUCT_API } from '../../../config';
+import { withRouter } from 'react-router-dom';
+import { CATEGORIES_API } from '../../../config';
 import './ProductListContent.scss';
 
-const IMAGE_DIVIDER_REGEXP = /::/;
 const NUMBER_FORMAT_REGEXP = /\B(?=(\d{3})+(?!\d))/g;
 
 class ProductListContent extends Component {
@@ -11,24 +10,22 @@ class ProductListContent extends Component {
     super();
     this.state = {
         products: [],
-        //isHovering: false
         isHovering:''
     }
   }
   
   componentDidMount = () => {
-    fetch( PRODUCT_API )
+    fetch(CATEGORIES_API)
       .then(res => res.json())
-      .then(res => {
+      .then(data => {
         this.setState({
-          products: res.products
+          products: data.categories[0].subcategories[0].productList
           })
         } 
       )
     }
 
   handleMouseHover = (productID) => {
-    console.log('productId', productID);
     this.setState(() => (
       { isHovering: productID})
     );
@@ -41,9 +38,17 @@ class ProductListContent extends Component {
   render () {
     const { products } = this.state;
     return (
-      <div className="ProductListContent">
-        <div className="ProductListContent-intro">
-          <span className="ProductListContent-intro-title">
+      <div 
+        className="ProductListContent"
+        onMouseEnter={this.handleMouseHover}
+        onMouseLeave={this.handleMouseHover}
+        >
+        <div 
+          className="ProductListContent-intro" 
+          onMouseEnter={this.handleMouseHover}
+          onMouseLeave={this.handleMouseHover}
+          >
+          <span className="ProductListContent-intro-title" >
             처음의 시작
           </span>
           <p>
@@ -52,8 +57,6 @@ class ProductListContent extends Component {
         </div>
         {products &&
         products.map(product => {
-          const [ image ] = Object.values(product.media);
-          const { index } = image.match(IMAGE_DIVIDER_REGEXP);
           const productID = product.id;
           return (
           <div 
@@ -64,7 +67,7 @@ class ProductListContent extends Component {
             <div className="ProductListContent-detail">
               <div className="ProductListContent-detail-upperBox" onClick={() => this.goToProductDetail(productID)}>
                 <div className="ProductListContent-detail-image" >
-                  <img width="400px"src={image.slice(0, index)} alt={product.name} />
+                  <img width="400px" src={product.media[0].url} alt={product.name} />
                 </div>
                 <div className="ProductListContent-detail-info">
                   <div className="ProductListContent-detail-info-name">
@@ -80,11 +83,11 @@ class ProductListContent extends Component {
               <div className="ProductListContent-detail-type">
                 <div className="ProductListContent-detail-type-skintype">
                   <span>피부 타입</span>
-                  <span>{Object.values(product.skin_types).join(', ')}</span>
+                  <span>{(product.skin_types).join(', ')} 피부</span>
                 </div>
                 <div className="ProductListContent-detail-type-texture">
                   <span>사용감</span>
-                  <span>{Object.values(product.feels).join(', ')}</span>
+                  <span>{(product.feels).join(', ')}</span>
                 </div>
               </div>
             </div>
