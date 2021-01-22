@@ -7,7 +7,7 @@
   .ProductListContent-intro {
     width: 33.3%;
     height: 780px;
-    padding-left: 40px;
+    padding: 0 20px 0 40px;
     padding-top:100px;
     background-color: #f6f5e8;
 
@@ -16,7 +16,7 @@
     }
 
     p {
-      width: 550px;
+      width: 100%;
       margin-top:30px;
       line-height: 25px;
       font-size:16px;

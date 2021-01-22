@@ -41,10 +41,10 @@ class NavList extends Component {
     const {isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength } = this.props;
     const { goToProductDetail } = this;
     const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength } = this.props;
-    console.log(isSubCategoryBoxVisible, isProductBoxVisible);
+    
     return (
       
-      <div className="NavList" onMouseLeave={removeAllBox}> 
+      <div className="NavList" onMouseLeave={isProductBoxVisible !== 0 &&removeAllBox}> 
 
         <div className="categoriesWrapper" onMouseEnter={isProductBoxVisible !== 0 && removeProductBox}>
           <ul className="categories">

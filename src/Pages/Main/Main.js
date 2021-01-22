@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-//import { PRODUCTS_API } from '../../config';
+import { CATEGORIES_API } from '../../config';
 import MainHeader from './Component/MainHeader';
 import NewProduct from './Component/NewProduct';
 import Slider from './Component/Slider';
@@ -12,18 +12,16 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
-      products: [],
-      products2: []
+      products: []
     }
   }
 
   componentDidMount = () => {
-    fetch("http://10.58.7.216:8000/products/category")
+    fetch(CATEGORIES_API)
       .then(res => res.json())
       .then((data) => {
         this.setState({
-          products: data.categories[0].subcategories[0].productList,
-          products2:data.categories[1].subcategories[0].productList,
+          products: data.categories[0].subcategories[0].productList
           })
         } 
       )
@@ -34,13 +32,13 @@ class Main extends Component {
   }
 
   render() { 
-    const { products, products2 } = this.state;
+    const { products } = this.state;
     return (
       <div className="main">
         <MainHeader />
         <Slider products={products} goToDetail={this.goToDetail}/>
         <NewProduct />  
-        <Slider products={products2}/>
+        <Slider products={products} goToDetail={this.goToDetail}/>
         <Location /> 
         <Quote />  
       </div>

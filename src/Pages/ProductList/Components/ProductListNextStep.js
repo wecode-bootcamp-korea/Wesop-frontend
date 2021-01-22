@@ -12,7 +12,7 @@ class ProductListNextStep extends Component {
           <span>다음 단계</span>
           <span>마찰로 만드는 아름다움</span>
           <div className="ProductListNextStep-move-button">
-            각질제거<i class="fas fa-arrow-right"></i>           
+            각질제거<i className="fas fa-arrow-right"></i>           
           </div>
         </div>
       </div>

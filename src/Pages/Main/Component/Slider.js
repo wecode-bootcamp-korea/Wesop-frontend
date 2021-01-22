@@ -28,7 +28,7 @@ class Slider extends Component {
             productId={product.id}
             description={product.description}
             name={product.name}
-            url={product.media[0].url}
+            url={product.media[0]?.url}
           />}
             </SwiperSlide>
             )

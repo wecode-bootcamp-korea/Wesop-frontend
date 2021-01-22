@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { PRODUCT_API } from '../../../config';
+import { withRouter } from 'react-router-dom';
+import { CATEGORIES_API } from '../../../config';
 import './ProductListContent.scss';
 
 const NUMBER_FORMAT_REGEXP = /\B(?=(\d{3})+(?!\d))/g;
@@ -15,7 +15,7 @@ class ProductListContent extends Component {
   }
   
   componentDidMount = () => {
-    fetch('http://10.58.7.216:8000/products/category')
+    fetch(CATEGORIES_API)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -58,7 +58,6 @@ class ProductListContent extends Component {
         {products &&
         products.map(product => {
           const productID = product.id;
-          console.log(product.media[0].url);
           return (
           <div 
               onMouseEnter={() => this.handleMouseHover(productID)}
