@@ -22,7 +22,7 @@ class MainHeader extends Component {
           </div>
         </div>
         <div className="mainSection-header-rightSide">
-          <img alt="new_product_promotion_img" src="https://www.aesop.com/u1nb1km7t5q7/2lcsVIwzcf7YupCndczysa/4e8755959b13dac77f0749dab5a89ba4/Aesop_Poured_Candles_2020_Hybris_Homepage_Secondary_Split_02_960x540px.gif" />
+          <img alt="new_product_promotion_img" src="https://images.unsplash.com/photo-1603117446700-91ada61a5006?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" />
         </div>
       </section>      
     );

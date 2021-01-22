@@ -4,10 +4,10 @@ import './Products.scss';
 class Products extends Component {
   
   render() {
-    const { name, url, description} = this.props;
-    
+    const { goToDetail, productId, name, url, description} = this.props;
+    //즉시실행을 막기위해서 콜백함수
     return (
-      <div className="mainSection-Slider-items-list">
+      <div className="mainSection-Slider-items-list" onClick={() => goToDetail(productId)}> 
         <div className="mainSection-Slider-items-line">
           <div className="mainSection-Slider-items">
             <img alt={name} src={url}/>
