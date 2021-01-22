@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SignInForm.scss';
 
 
+
 class SignInForm extends Component {
   constructor() {
     super();
@@ -20,19 +21,22 @@ class SignInForm extends Component {
     })
   }
 
-  handleLoginButton = () => {
-    fetch("백엔드주소", {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-      }),    
-    })
-    .then((response) => response.json())
-    .then((response) => {})
-  }
-
-
+  // handleLoginButton = () => {
+  //   fetch("http://10.58.2.232:8000/user/signin", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.email,
+  //       password: this.state.password,
+  //     }),    
+  //   })
+  //   .then((response) => response.json())
+  //   .then((response) => {response.message(
+  //     if (response.message === 'valid user') {
+  //       // localStorage.setItem('token', response.token)
+  //       this.props.history.push('/'),
+  //     }
+  //   )    
+  // }
   
   checkInputValid= () => {
     const { email, password } = this.state;
@@ -48,15 +52,15 @@ class SignInForm extends Component {
   
   render() {
     const {isEmailValid, isPasswordValid} = this.state
-
+    // console.log(this.props.emailData)
     return (
       <div className="Login">
         <div className="head">
-          <span className="returnButton">
-            Back
+          <span className="returnButton" onClick={this.props.goDefaultModal}>
+          <i class="fas fa-arrow-left"></i>
           </span>
           <span className="closeButton" onClick={this.props.handleLoginModal}>
-            X
+            <i class="fas fa-times"></i>
           </span>
         </div> 
         <div className="LoginNotice">
@@ -71,6 +75,7 @@ class SignInForm extends Component {
             placeholder="이메일 주소" 
             onChange={this.handleInputChange} 
             name="email"
+            value={this.props.emaildata}
             />
           <div className="warningWrap">
             <span class={isEmailValid ? "inactive" : "active"} >유효한 이메일을 입력해주세요.</span>

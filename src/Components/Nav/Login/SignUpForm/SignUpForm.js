@@ -25,15 +25,18 @@ class SignUpForm extends Component {
   }
 
   handleJoinButton = () => {
-    fetch("백엔드주소", {
+    fetch("http://10.58.2.232:8000/user/signup", {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
-        password: this.state.passwrod,
+        password: this.state.password,
+        name: this.state.name,
       }),    
     })
     .then((response) => response.json())
-    .then((response) => {})
+    .then((response) => {response.message})
+
+    this.props.goToMain();
   }
 
 
@@ -56,8 +59,12 @@ class SignUpForm extends Component {
     return (
       <div className= "Login">
         <div className="head">
-          <span className="returnButton">Back</span>
-          <span className="closeButton" onClick={this.props.handleLoginModal}>X</span>
+          <span className="returnButton">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+          <span className="closeButton" onClick={this.props.handleLoginModal}>
+            <i class="fas fa-times"></i>
+          </span>
         </div> 
         <div className="LoginNotice">
           <h2 className="LoginTitle">처음 만나 뵙게 되네요. 이솝에 오신 것을 환영합니다.</h2>
@@ -69,6 +76,7 @@ class SignUpForm extends Component {
             placeholder="이메일 주소" 
             onChange={this.handleInputChange} 
             name="email"
+            value={this.props.emaildata}
           />
           <div className="warningWrap">
             <span className={isEmailValid ? 'inactive' : 'active'}>유효한 이메일을 입력해주세요. </span>
