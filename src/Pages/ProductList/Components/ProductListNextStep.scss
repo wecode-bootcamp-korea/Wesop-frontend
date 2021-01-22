@@ -1,8 +1,10 @@
+@import '../../../Styles/common.scss';
+
 .ProductListNextStep {
   display: flex;
   width: 100%;
   height: 370px;
-  background-color: #ebeade;
+  background-color:#c1bcc2;
 
   .ProductListNextStep-image {
     display: flex;
@@ -13,7 +15,7 @@
     padding-top:10px;
 
     img {
-      width:35%;
+      width:31%;
     }
   }
 
@@ -46,7 +48,7 @@
       &:hover { 
 				cursor: pointer; 
 				background-color: black; 
-				color:#fffef2;
+				color: $wesop_white;
 			}
     }
   }

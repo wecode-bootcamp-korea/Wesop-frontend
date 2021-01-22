@@ -86,6 +86,8 @@
 
     .third{
       z-index: 3;
+      width: calc(34vw - 2px);
+      border: none;
     }
 
     .categoriesWrapper{
@@ -95,11 +97,6 @@
     .hide {
       display: none;
     }
-
-  .lastChild {
-    width: calc(34vw - 2px);
-    border: none;
-  }
 
   .hidden {
     animation: 0.7s showOut forwards;
