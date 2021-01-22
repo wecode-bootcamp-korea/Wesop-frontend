@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import NavCategoryList from './NavCategoryList/NavCategoryList'
 import NavProductList from './NavProductList/NavProductList';
-import { categories } from './PropertyData';
 import {CATEGORIES_API} from '../../../config';
+import {categories} from './PropertyData';
 import './NavList.scss'
 
 
@@ -13,68 +13,22 @@ class NavList extends Component {
     super(props);
     this.state = {
       categories: [],
-      categoryIdx: 0,
-      subCategoryIdx: 0,
-      showSubLength: false,
-      showProductLength: false,
-      isSubCategoryBoxVisible: false,
-      isProductBoxVisible: false,
-      showMainImage: false,
     };
   }
 
   componentDidMount() {
-    fetch(CATEGORIES_API)
-     .then(res => res.json())
-     .then(res => {
-       this.setState({
-        categories: res.categories,
-       });
-     });
-  }
-
-  toggleSubcategoryBox = (idx) => {
+    console.log(categories);
+    console.log(this.state.categories);
     this.setState({
-      isSubCategoryBoxVisible: true,
-      isProductBoxVisible: false,
-      categoryIdx: idx,
-      showSubLength: idx,
+      categories: categories,
     })
-  };
-
-  toggleProductBox = (idx) => {
-    this.setState({
-      isProductBoxVisible: true,
-      subCategoryIdx: idx,
-      showProductLength: idx,
-      showMainImage: false,
-    })
-  };
-
-  removeAllBox = () => {
-    this.setState({
-      isSubCategoryBoxVisible: false,
-      isProductBoxVisible: false,
-      showSubLength: false,
-      showProductLength: false,
-      showMainImage: false,
-    })
-  }
-
-  removeProductBox = () => {
-    this.setState({
-      isProductBoxVisible: false,
-      showProductLength: false,
-      showMainImage: false,
-    })
-  }
-
-  toggleShowAllBox = () => {
-    this.setState({
-      showMainImage: true,
-      isProductBoxVisible: false,
-      showProductLength: false,
-    })
+    // fetch(CATEGORIES_API)
+    //  .then(res => res.json())
+    //  .then(res => {
+    //    this.setState({
+    //     categories: res.categories,
+    //    });
+    //  });
   }
 
   goToProductDetail = (id) => {
@@ -82,25 +36,17 @@ class NavList extends Component {
     this.props.history.push(`/product_detail/${id}`);
   }
 
-  showAllLength = category => {
-    let result = 0;
-    for (let i = 0; i < category.subcategories.length; i++) {
-      result += (category.subcategories[i].productList.length);
-    }
-    return result;
-  }
-
-
-
   render () {
-    const { categories, isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength, showMainImage } = this.state;
-    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength, goToProductDetail } = this;
-
+    const {categories} = this.state;
+    const {isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength } = this.props;
+    const { goToProductDetail } = this;
+    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength } = this.props;
+    console.log(isSubCategoryBoxVisible, isProductBoxVisible);
     return (
       
       <div className="NavList" onMouseLeave={removeAllBox}> 
 
-        <div onMouseEnter={removeProductBox}>
+        <div className="categoriesWrapper" onMouseEnter={isProductBoxVisible !== 0 && removeProductBox}>
           <ul className="categories">
             {categories && categories.map((category, idx) => {
               return (
@@ -108,41 +54,37 @@ class NavList extends Component {
                   <button className={(showSubLength === idx) ? "selected" : ""} onMouseOver={() => toggleSubcategoryBox(idx)}>
                     <Link to="/category_list">{category.type}</Link>
                   </button>
-                  <span className={(showSubLength === idx) ? "length" : "hidden"}>{showAllLength(category)}</span>
+                  <span className={(showSubLength === idx) ? "length" : "hideNumber"}>{showAllLength(category)}</span>
                 </li>
               )
             })}
           </ul>
         </div>
 
-          <div className={isSubCategoryBoxVisible ? "" : "hidden"}>
+          <div className={isSubCategoryBoxVisible === 0 ? "hide" :  isSubCategoryBoxVisible === 1 ? "showUp second" : "hidden"}>
             <ul className="subCategories">
               <NavCategoryList 
-              subCategories={ categories.length && categories[categoryIdx].subcategories } 
+              subCategories={ categories && categories[categoryIdx]?.subcategories } 
               toggleProductBox={toggleProductBox}
               toggleSubcategoryBox={toggleSubcategoryBox} 
               showProductLength={showProductLength}
               toggleShowAllBox={toggleShowAllBox}
+              removeProductBox={removeProductBox}
+              isProductBoxVisible={isProductBoxVisible}
               />
             </ul>
           </div>
 
-          <div className={isProductBoxVisible ? "lastChild" : "hidden"}>
+          <div className={isProductBoxVisible === 0 ? "hide" :  isProductBoxVisible === 1 ? "showUp third" : "hidden"}>
             <ul className="products">
               <NavProductList
-              productList={ categories.length && categories[categoryIdx].subcategories[subCategoryIdx].productList}
+              productList={ categories?.length && categories[categoryIdx].subcategories[subCategoryIdx].productList}
               toggleProductBox={toggleProductBox} 
               goToProductDetail={goToProductDetail}
               />
             </ul>            
           </div>
-
-          <div className={showMainImage ? "lastChild" : "hidden"}>
-            <img alt="testing" src="https://www.aesop.com/medias/Aesop-Shop-Navigation-SkinCare-960x1600px.jpg?context=bWFzdGVyfGltYWdlc3wyOTMwMzF8aW1hZ2UvanBlZ3xpbWFnZXMvaGEyL2g2ZS84ODA5OTU3NTg5MDIyLmpwZ3xkY2U4Y2Y0NDRlNTc3YzYwMzJjYjBlMjVjNDM3Njg4MTI2ZDZhYWE4MjM2YTJhZTViNmZhMGVjNTNhNzZhOTgw"></img>
-          </div>
-
       </div>
-
     );
   }
 }
