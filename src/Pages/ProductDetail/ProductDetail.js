@@ -38,6 +38,7 @@ class ProductDetail extends Component {
         });
       });
     }
+    window.scrollTo(0, 0);
   }
 
   seperateMedia(arr) {

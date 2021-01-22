@@ -2,6 +2,7 @@
 
 .Login {
   .LoginModal {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,6 +10,8 @@
     background-color: $wesop-white;
     color: black;
     padding: 50px 40px;
+    transform: translate(-50%, -50%);
+    top: 40vh;
     width: 500px;
     min-height: 380px;
 

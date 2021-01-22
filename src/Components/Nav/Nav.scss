@@ -21,7 +21,6 @@
         padding-bottom: 3px;
         border-bottom: 1px solid transparent;
         
-
        &:hover{
          cursor: pointer;
          padding-bottom: 3px;
@@ -46,10 +45,29 @@
     position: absolute;
     top: 75px;
     left: 0;
-    
+    animation: 0.7s slideIn forwards;
   }
 
   .hideNavList {
+    // animation: 0.7s slideOut forwards;
     display: none;
+  }
+}
+
+@keyframes slideIn {
+  0%{
+  transform: translate(-100%, 0);
+  }
+  100%{
+  transform: translate(0%, 0);
+  }
+}
+
+@keyframes slideOut {
+  0%{
+    transform: translate(0%, 0);
+  }
+  100%{
+      transform: translate(-100%, 0);
   }
 }
