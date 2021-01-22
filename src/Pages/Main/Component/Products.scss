@@ -1,3 +1,5 @@
+@import '../../../Styles/common.scss';
+
 .mainSection-Slider-items-list {
 
   .mainSection-Slider-items-line {
@@ -6,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: fffef2;
+    background-color: $wesop_white;
   
     .mainSection-Slider-items {
       width: 450px;
@@ -14,11 +16,12 @@
       margin-top: 50px;
       margin-bottom:25px;
       padding-bottom: 30px;;
-      background-color:fffef2;
+      background-color: $wesop_white;
       display: flex;
       flex-direction: column ;
       justify-content:flex-end;
       align-items: center;
+      cursor: pointer;
   
       img {
         width: 100%;
