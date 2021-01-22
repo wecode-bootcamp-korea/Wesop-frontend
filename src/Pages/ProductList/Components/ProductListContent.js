@@ -58,6 +58,7 @@ class ProductListContent extends Component {
         {products &&
         products.map(product => {
           const productID = product.id;
+          console.log(product.media[0].url);
           return (
           <div 
               onMouseEnter={() => this.handleMouseHover(productID)}
@@ -65,12 +66,9 @@ class ProductListContent extends Component {
               className="ProductListContent-item"
               >
             <div className="ProductListContent-detail">
-              <div className="ProductListContent-detail-image">
-                <img width="400px"src={product.media[0].url} alt={product.name} />
-              </div>
-              <div className="ProductListContent-detail-info">
-                <div className="ProductListContent-detail-info-name">
-                  <span>{product.name}</span>
+              <div className="ProductListContent-detail-upperBox" onClick={() => this.goToProductDetail(productID)}>
+                <div className="ProductListContent-detail-image" >
+                  <img width="400px" src={product.media[0].url} alt={product.name} />
                 </div>
                 <div className="ProductListContent-detail-info">
                   <div className="ProductListContent-detail-info-name">
