@@ -38,9 +38,9 @@ class NavList extends Component {
 
   render () {
     const {categories} = this.state;
-    const {isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength, showMainImage } = this.props;
+    const {isSubCategoryBoxVisible, isProductBoxVisible, categoryIdx, subCategoryIdx, showSubLength, showProductLength } = this.props;
     const { goToProductDetail } = this;
-    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength} = this.props
+    const { toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength } = this.props;
     console.log(isSubCategoryBoxVisible, isProductBoxVisible);
     return (
       
@@ -69,6 +69,8 @@ class NavList extends Component {
               toggleSubcategoryBox={toggleSubcategoryBox} 
               showProductLength={showProductLength}
               toggleShowAllBox={toggleShowAllBox}
+              removeProductBox={removeProductBox}
+              isProductBoxVisible={isProductBoxVisible}
               />
             </ul>
           </div>

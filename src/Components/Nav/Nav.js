@@ -74,7 +74,7 @@ class Nav extends Component {
   }
 
   goToProductDetail = (id) => {
-    this.props.handleNavListModal();
+    this.handleNavListModal();
     this.props.history.push(`/product_detail/${id}`);
   }
 
@@ -90,7 +90,7 @@ class Nav extends Component {
 
   render () {
     const { isLoginShown, isNavListShown, isCategoryBoxVisible } = this.state;
-    const {handleNavListModal, toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength} = this;
+    const {handleNavListModal, toggleSubcategoryBox, toggleProductBox, removeAllBox, removeProductBox, toggleShowAllBox, showAllLength } = this;
     return (
       <nav className='Nav'>
         <div className="NavLeftWrap">
