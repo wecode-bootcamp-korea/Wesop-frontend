@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+// import {withRouter} from 'react-router-dom';
 import './SignInForm.scss';
+
 
 
 class SignInForm extends Component {
@@ -13,6 +15,12 @@ class SignInForm extends Component {
     }
   }
 
+  componentDidMount () {
+    this.setState ({
+      email: this.props.emailData
+    })
+  }
+
   handleInputChange = (e) => {
     const { name, value } = e.target;
     this.setState ({
@@ -21,20 +29,28 @@ class SignInForm extends Component {
   }
 
   handleLoginButton = () => {
-    fetch("백엔드주소", {
+    const { email, password} = this.state;
+    console.log(email, password)
+    fetch("http://10.58.2.232:8000/user/signin", {
       method: "POST",
       body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
+        email,
+        password
       }),    
     })
     .then((response) => response.json())
-    .then((response) => {})
-  }
-
-
+    .then((response) => {
+      if (response.message === 'valid user') {
+        // localStorage.setItem('token', response.token)
+        this.props.handleLoginModal();
+        window.location.reload();
+      } 
+    })
+  }    
   
-  checkInputValid= () => {
+ 
+
+  checkInputValid = () => {
     const { email, password } = this.state;
     const isEmailValid = email.includes("@") && email.length > 5;
     const isPasswordValid = password.length > 5;
@@ -47,16 +63,17 @@ class SignInForm extends Component {
   }
   
   render() {
-    const {isEmailValid, isPasswordValid} = this.state
-
+    console.log(this.props)
+    const {isEmailValid, isPasswordValid} = this.state;
+    // console.log(this.props.emailData)
     return (
       <div className="Login">
         <div className="head">
-          <span className="returnButton">
-            Back
+          <span className="returnButton" onClick={this.props.goToDefault}>
+            <i class="fas fa-arrow-left"></i>
           </span>
-          <span className="closeButton" onClick={this.props.handleLoginModal}>
-            X
+          <span className="closeButton" onClick={this.props.goToDefault}>
+            <i class="fas fa-times"></i>
           </span>
         </div> 
         <div className="LoginNotice">
@@ -71,6 +88,7 @@ class SignInForm extends Component {
             placeholder="이메일 주소" 
             onChange={this.handleInputChange} 
             name="email"
+            value={this.state.email}
             />
           <div className="warningWrap">
             <span class={isEmailValid ? "inactive" : "active"} >유효한 이메일을 입력해주세요.</span>
@@ -100,6 +118,6 @@ class SignInForm extends Component {
   } 
 }
 
-
-
 export default SignInForm;
+
+// export default withRouter(SignInForm);

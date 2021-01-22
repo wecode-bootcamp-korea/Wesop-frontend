@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './DefaultForm.scss' ;
 
+
 class DefaultForm extends Component {
   constructor() {
     super();
@@ -19,14 +20,16 @@ class DefaultForm extends Component {
 
   handleContinueButton = () => {
       if(this.state.isValid) {
-       fetch("http://10.58.4.30:8000/user/check", {
+       fetch("http://10.58.2.232:8000/user/check", {
         method: "POST",
         body: JSON.stringify({
           email: this.state.email,
+
         })
       })
       .then((response) => response.json())
-      .then((response) => {this.props.handleCurrentView(response.message);}) 
+      .then((response) => {this.props.handleCurrentView(response.message,
+        this.state.email);}) 
     }
   }
 
@@ -43,12 +46,11 @@ class DefaultForm extends Component {
 
   render() {
     const {isValid} = this.state;
-
     return (
       <div className= "Login">
         <div className="head">
             <span className="closeButton" onClick={this.props.handleLoginModal}>
-              X
+              <i class="fas fa-times"></i>
             </span>
           </div>
           <div className="LoginNotice">
